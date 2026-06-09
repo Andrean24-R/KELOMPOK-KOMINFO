@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Knalpot - Mikroskil Autospeed</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="katalog.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo" id="easterEgg" style="cursor: pointer;">
+            MIKROSKIL <span>AUTOSPEED</span>
+        </div>
+        <nav class="nav-links">
+            <a href="beranda.html">Beranda</a>
+            <a href="katalog_knalpot.html" class="active">Katalog Knalpot</a>
+            <a href="aksesoris_body.html">Aksesoris</a>
+            <a href="layanan.html">Layanan</a>
+            <a href="cart.html" class="cart-link">
+                🛒 Keranjang <span id="cartCount" class="cart-badge">0</span>
+            </a>
+            <a href="index.html" class="btn-login">Keluar</a>
+        </nav>
+    </header>
+
+    <div id="videoModal" class="video-overlay">
+        <span class="close-video">&times;</span>
+        <div class="video-container">
+            <video id="myVideo" width="100%" controls>
+                <source src="video-balap.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <section class="katalog-container">
+        <div class="katalog-header">
+            <h1>Koleksi Knalpot Racing</h1>
+            <p>Pilih suara dan performa yang cocok buat mesin JDM lu!</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Produk Akrapovic -->
+            <div class="product-card" data-id="akrapovic-fs" data-name="Akrapovic Full System" data-price="12500000" data-image="https://dynobike.com.au/wp-content/uploads/2021/02/Aprilia-RSV4-Akrapovic-full-system.png">
+                <div class="product-img">
+                    <img src="https://dynobike.com.au/wp-content/uploads/2021/02/Aprilia-RSV4-Akrapovic-full-system.png" alt="Akrapovic Evolution">
+                </div>
+                <div class="product-info">
+                    <h3>Akrapovic Full System</h3>
+                    <p class="desc">Bahan Titanium, ringan, suara ngebass gahar.</p>
+                    <p class="price">Rp 12.500.000</p>
+                    <button class="btn-buy" data-name="Akrapovic Full System" data-price="12500000">SIKAT!</button>
+                </div>
+            </div>
+
+            <!-- Produk HKS -->
+            <div class="product-card" data-id="hks-hipower" data-name="HKS Hi-Power JDM" data-price="80999999" data-image="https://cdn11.bigcommerce.com/s-79xyvl/products/19086/images/31575/HKS_R35_SpecR__98017.1722351293.500.659.jpg?c=2">
+                <div class="product-img">
+                    <img src="https://cdn11.bigcommerce.com/s-79xyvl/products/19086/images/31575/HKS_R35_SpecR__98017.1722351293.500.659.jpg?c=2" alt="HKS Hi-Power">
+                </div>
+                <div class="product-info">
+                    <h3>HKS Hi-Power JDM</h3>
+                    <p class="desc">Khas mobil Jepang, performa naik drastis.</p>
+                    <p class="price">Rp 80.999.999</p>
+                    <button class="btn-buy" data-name="HKS Hi-Power JDM" data-price="80999999">SIKAT!</button>
+                </div>
+            </div>
+
+            <!-- Produk LeoVince -->
+            <div class="product-card" data-id="leovince-gp" data-name="LEOVINCE GP CORSA EVO" data-price="10200000" data-image="https://www.omniaracing.net/rep/images/Leovince_GP_CORSA_EVO_gif.gif">
+                <div class="product-img">
+                    <img src="https://www.omniaracing.net/rep/images/Leovince_GP_CORSA_EVO_gif.gif" alt="LeoVince">
+                </div>
+                <div class="product-info">
+                    <h3>LEOVINCE GP CORSA EVO</h3>
+                    <p class="desc">Finishing carbon, tahan panas, look sporty.</p>
+                    <p class="price">Rp 10.200.000</p>
+                    <button class="btn-buy" data-name="LEOVINCE GP CORSA EVO" data-price="10200000">SIKAT!</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-id="LEOVINCE-GrandTurismo" data-name="LEOVINCE-GrandTurismo" data-price="11000000" data-image="https://www.omniaracing.net/rep/images/Leovince_GRANTURISMO_gif.gif">
+                <div class="product-img">
+                    <img src="https://www.omniaracing.net/rep/images/Leovince_GRANTURISMO_gif.gif" alt="LeoVince">
+                </div>
+                <div class="product-info">
+                    <h3>LEOVINCE-GrandTurismo</h3>
+                    <p class="desc">Berbahan Titanium, tahan panas, look sporty.</p>
+                    <p class="price">Rp 11.000.000</p>
+                    <button class="btn-buy" data-name="LEOVINCE-GrandTurismo" data-price="11000000">SIKAT!</button>
+                 </div>
+             </div>
+
+              <div class="product-card" data-id="LEOVINCE-LV PRO" data-name="LEOVINCE-LV PRO" data-price="11000000" data-image="https://www.omniaracing.net/rep/images/Leovince_LV_PRO_CARBON_FIBER_gif.gif">
+                <div class="product-img">
+                    <img src="https://www.omniaracing.net/rep/images/Leovince_LV_PRO_CARBON_FIBER_gif.gif" alt="LeoVince">
+                </div>
+                <div class="product-info">
+                    <h3>LEOVINCE-LV PRO</h3>
+                    <p class="desc">Finishing carbon, tahan panas, look sporty.</p>
+                    <p class="price">Rp 11.000.000</p>
+                    <button class="btn-buy" data-name="LEOVINCE-LV PRO" data-price="18000000">SIKAT!</button>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
