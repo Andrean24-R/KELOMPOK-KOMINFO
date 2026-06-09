@@ -1,4 +1,11 @@
-/* --- KATALOG STYLE --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .katalog-container {
     padding: 60px 50px;
     background-color: #121212;
@@ -87,4 +94,67 @@
 
 .btn-buy:hover {
     background-color: #cc0000;
+}
+
+footer {
+    background-color: #000;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 20px 50px;
+    border-bottom: 3px solid #d32f2f; 
+    width: 100%;
+    margin: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d32f2f; 
+}
+
+.menu li .kembali{
+    color: black; 
+    border: 2px solid #ee0707;
+    padding: 8px 15px;
+    border-radius: 6px;
+    background: #ee0707;
+}
+
+.menu li a {
+    color: #888888; 
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+
+.menu li a:hover {
+    color: white;
+}
+
+
+.menu li a.aktif {
+    color: #ee0707;
+    border-bottom: 2px solid #ee0707; 
+    padding-bottom: 7px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }

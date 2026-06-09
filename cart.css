@@ -23,6 +23,7 @@
     text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
     border-bottom: 2px solid #333;
     padding-bottom: 15px;
+    text-align: center;
 }
 
 .cart-item {
@@ -371,4 +372,57 @@
 .address-section textarea::placeholder {
     color: #666;
     font-style: italic;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 20px 50px;
+    border-bottom: 3px solid #d32f2f; 
+    width: 100%;
+    margin: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d32f2f; 
+}
+
+.menu li .kembali{
+    color: black; 
+    border: 2px solid #ee0707;
+    padding: 8px 15px;
+    border-radius: 6px;
+    background: #ee0707;
+}
+
+.menu li a {
+    color: #888888; 
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+
+.menu li a:hover {
+    color: white;
+}
+
+
+.menu li a.aktif {
+    color: #ee0707; 
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
