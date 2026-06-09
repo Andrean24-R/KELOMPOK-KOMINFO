@@ -1,130 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Keranjang Belanja - Mikroskil Autospeed</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="cart.css">
-</head>
+    <link rel="stylesheet" href="CSS/index.css" />
+    <link rel="stylesheet" href="CSS/cart.css" />
+  </head>
 
-<body>
-
-<header>
-    <div class="logo" id="easterEgg" style="cursor: pointer;">
+  <body>
+    <header>
+      <div class="logo" id="easterEgg" style="cursor: pointer">
         MIKROSKIL <span>AUTOSPEED</span>
-    </div>
-    <nav class="nav-links">
+      </div>
+      <nav class="nav-links">
         <a href="beranda.html">Beranda</a>
         <a href="katalog_knalpot.html">Katalog Knalpot</a>
         <a href="aksesoris_body.html">Aksesoris Body</a>
         <a href="layanan.html">Layanan</a>
         <a href="cart.html" class="cart-link active">
-            🛒 Keranjang <span id="cartCount" class="cart-badge" style="position: absolute; top: -10px; right: -15px; background: #ff0000; color: #fff; border-radius: 50%; padding: 2px 7px; font-size: 12px; font-weight: bold;">0</span>
+          🛒 Keranjang
+          <span
+            id="cartCount"
+            class="cart-badge"
+            style="
+              position: absolute;
+              top: -10px;
+              right: -15px;
+              background: #ff0000;
+              color: #fff;
+              border-radius: 50%;
+              padding: 2px 7px;
+              font-size: 12px;
+              font-weight: bold;
+            "
+            >0</span
+          >
         </a>
         <a href="index.html" class="btn-login">Keluar</a>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<div id="videoModal" class="video-overlay">
-    <div class="video-container">
+    <div id="videoModal" class="video-overlay">
+      <div class="video-container">
         <span class="close-video">&times;</span>
         <video id="myVideo" width="100%" controls>
-            <source src="video-balap.mp4" type="video/mp4">
+          <source src="video-balap.mp4" type="video/mp4" />
         </video>
+      </div>
     </div>
-</div>
 
-<main class="cart-container">
-    <div id="paymentModal" class="payment-overlay">
+    <main class="cart-container">
+      <div id="paymentModal" class="payment-overlay">
         <div class="payment-container">
-            <span class="close-payment" id="closePayment">&times;</span>
-            
-            <div id="step1">
-                <h2>INFO PENGIRIMAN</h2>
-                
-                <div class="address-section">
-                    <textarea id="shippingAddress" rows="3" placeholder="Ketik alamat lengkap lu di sini! (Contoh: Jl. Jamin Ginting No. 123, RT 01/02, Patumbak...)"></textarea>
-                </div>
+          <span class="close-payment" id="closePayment">&times;</span>
 
-                <h2>PILIH JALUR PEMBAYARAN</h2>
-                <div class="payment-options">
-                    <label class="payment-method">
-                        <input type="radio" name="payment" value="BCA Virtual Account" checked>
-                        <div class="method-content">
-                            <span class="bank-name">BCA Virtual Account</span>
-                            <span class="bank-desc">Cek otomatis, no ribet.</span>
-                        </div>
-                    </label>
-                    <label class="payment-method">
-                        <input type="radio" name="payment" value="Mandiri Virtual Account">
-                        <div class="method-content">
-                            <span class="bank-name">Mandiri Virtual Account</span>
-                            <span class="bank-desc">Cek otomatis 24 Jam.</span>
-                        </div>
-                    </label>
-                    <label class="payment-method">
-                        <input type="radio" name="payment" value="QRIS">
-                        <div class="method-content">
-                            <span class="bank-name">QRIS (Gopay / OVO / Dana)</span>
-                            <span class="bank-desc">Tinggal scan barcode aja Bos!</span>
-                        </div>
-                    </label>
-                    <label class="payment-method">
-                        <input type="radio" name="payment" value="COD">
-                        <div class="method-content">
-                            <span class="bank-name">Bayar di Tempat (COD)</span>
-                            <span class="bank-desc">Siapin cash keras pas kurir nyampe!</span>
-                        </div>
-                    </label>
-                </div>
-                <button id="btnLanjutBayar" class="btn-confirm-pay">LANJUTKAN</button>
+          <div id="step1">
+            <h2>INFO PENGIRIMAN</h2>
+
+            <div class="address-section">
+              <textarea
+                id="shippingAddress"
+                rows="3"
+                placeholder="Ketik alamat lengkap lu di sini! (Contoh: Jl. Jamin Ginting No. 123, RT 01/02, Patumbak...)"
+              ></textarea>
             </div>
 
-            <div id="step2" style="display: none;">
-                <h2>TAGIHAN LU</h2>
-                <div class="payment-details-box">
-                    <h3 id="selectedMethodName">Metode Pembayaran</h3>
-                    <p id="paymentInstruction" class="instruction-text">Silakan transfer ke nomor berikut:</p>
-                    
-                    <div class="va-box" id="vaCodeContainer">
-                        <span id="vaNumber">0</span>
-                    </div>
-
-                    <div class="qris-box" id="qrisContainer" style="display: none;">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Pembayaran+Mikroskil+Autospeed" alt="Scan QRIS Ini" id="qrisImage">
-                    </div>
-
-                    <p class="timer-text">Batas waktu: <span id="paymentTimer" style="color:#ff0000; font-weight:bold;">15:00</span> menit</p>
+            <h2>PILIH JALUR PEMBAYARAN</h2>
+            <div class="payment-options">
+              <label class="payment-method">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="BCA Virtual Account"
+                  checked
+                />
+                <div class="method-content">
+                  <span class="bank-name">BCA Virtual Account</span>
+                  <span class="bank-desc">Cek otomatis, no ribet.</span>
                 </div>
-                <button id="btnVerifikasi" class="btn-confirm-pay">SAYA SUDAH BAYAR</button>
+              </label>
+              <label class="payment-method">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="Mandiri Virtual Account"
+                />
+                <div class="method-content">
+                  <span class="bank-name">Mandiri Virtual Account</span>
+                  <span class="bank-desc">Cek otomatis 24 Jam.</span>
+                </div>
+              </label>
+              <label class="payment-method">
+                <input type="radio" name="payment" value="QRIS" />
+                <div class="method-content">
+                  <span class="bank-name">QRIS (Gopay / OVO / Dana)</span>
+                  <span class="bank-desc">Tinggal scan barcode aja Bos!</span>
+                </div>
+              </label>
+              <label class="payment-method">
+                <input type="radio" name="payment" value="COD" />
+                <div class="method-content">
+                  <span class="bank-name">Bayar di Tempat (COD)</span>
+                  <span class="bank-desc"
+                    >Siapin cash keras pas kurir nyampe!</span
+                  >
+                </div>
+              </label>
             </div>
+            <button id="btnLanjutBayar" class="btn-confirm-pay">
+              LANJUTKAN
+            </button>
+          </div>
 
+          <div id="step2" style="display: none">
+            <h2>TAGIHAN LU</h2>
+            <div class="payment-details-box">
+              <h3 id="selectedMethodName">Metode Pembayaran</h3>
+              <p id="paymentInstruction" class="instruction-text">
+                Silakan transfer ke nomor berikut:
+              </p>
+
+              <div class="va-box" id="vaCodeContainer">
+                <span id="vaNumber">0</span>
+              </div>
+
+              <div class="qris-box" id="qrisContainer" style="display: none">
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Pembayaran+Mikroskil+Autospeed"
+                  alt="Scan QRIS Ini"
+                  id="qrisImage"
+                />
+              </div>
+
+              <p class="timer-text">
+                Batas waktu:
+                <span
+                  id="paymentTimer"
+                  style="color: #ff0000; font-weight: bold"
+                  >15:00</span
+                >
+                menit
+              </p>
+            </div>
+            <button id="btnVerifikasi" class="btn-confirm-pay">
+              SAYA SUDAH BAYAR
+            </button>
+          </div>
         </div>
-    </div>
-    <h1>Keranjang Belanja</h1>
-    <div id="cartItemsContainer">
-        <p class="empty-cart">Keranjang masih kosong, gas belanja dulu bos! 🏎️</p>
-    </div>
+      </div>
+      <h1>Keranjang Belanja</h1>
+      <div id="cartItemsContainer">
+        <p class="empty-cart">
+          Keranjang masih kosong, gas belanja dulu bos! 🏎️
+        </p>
+      </div>
 
-    <div class="cart-summary" id="cartSummary" style="display: none;">
+      <div class="cart-summary" id="cartSummary" style="display: none">
         <div class="summary-row">
-            <span>TOTAL KESELURUHAN:</span>
-            <span id="totalPrice">Rp 0</span>
+          <span>TOTAL KESELURUHAN:</span>
+          <span id="totalPrice">Rp 0</span>
         </div>
         <button id="checkoutBtn" class="btn-checkout">GAS CHECKOUT!</button>
-    </div>
+      </div>
 
-    <div id="loadingOverlay" class="loading-overlay">
+      <div id="loadingOverlay" class="loading-overlay">
         <div class="spinner" id="loadingSpinner"></div>
-        
-        <div class="success-icon" id="successIcon" style="display: none;">👍</div>
-        
-        <h2 class="loading-text" id="loadingText">MEMPROSES TRANSAKSI...</h2>
-    </div>
-</main>
 
-<script src="cart.js"></script>
-<script src="script.js"></script>
-</body>
+        <div class="success-icon" id="successIcon" style="display: none">
+          👍
+        </div>
+
+        <h2 class="loading-text" id="loadingText">MEMPROSES TRANSAKSI...</h2>
+      </div>
+    </main>
+
+    <script src="JS/cart.js"></script>
+    <script src="JS/script.js"></script>
+  </body>
 </html>
