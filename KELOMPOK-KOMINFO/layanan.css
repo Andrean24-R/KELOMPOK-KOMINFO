@@ -1,0 +1,129 @@
+/* --- LAYANAN STYLE --- */
+.services-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.services-header h1 {
+    font-size: 3rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.services-header p {
+    color: #aaaaaa;
+    font-size: 1.1rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Card Layanan */
+.service-card {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: default;
+}
+
+.service-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
+    background-color: #1f1f1f;
+}
+
+.service-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.service-card p {
+    color: #888;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Media Query Tambahan biar makin mantap di HP */
+@media screen and (max-width: 600px) {
+    .services-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 20px 50px;
+    border-bottom: 3px solid #d32f2f; 
+    width: 100%;
+    margin: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d32f2f; 
+}
+
+.menu li .kembali{
+    color: black; 
+    border: 2px solid #ee0707;
+    padding: 8px 15px;
+    border-radius: 6px;
+    background: #ee0707;
+}
+
+.menu li a {
+    color: #888888; 
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+
+.menu li a:hover {
+    color: white;
+}
+
+
+.menu li a.aktif {
+    color: #ee0707;
+    border-bottom: 2px solid #ee0707; 
+    padding-bottom: 7px; 
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
