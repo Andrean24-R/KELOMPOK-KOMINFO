@@ -1,0 +1,428 @@
+
+
+/* Animasi Muncul */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cart-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.cart-container h1 {
+    color: #ff0000;
+    font-style: italic;
+    margin-bottom: 40px;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-left: 4px solid #333;
+}
+
+.cart-item:hover {
+    border-left-color: #ff0000;
+    border-right-color: rgba(255, 0, 0, 0.3);
+    transform: translateX(15px); /* Efek ngegas ke kanan */
+    box-shadow: -10px 10px 25px rgba(255, 0, 0, 0.15);
+    background: rgba(30, 30, 30, 0.9);
+}
+
+.cart-item-img {
+    width: 130px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #222;
+    margin-right: 25px;
+    transition: 0.3s;
+}
+
+.cart-item:hover .cart-item-img {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cart-item-price {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 8px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+/* --- KONTROL JUMLAH & TOMBOL HAPUS --- */
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #111;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.quantity-btn {
+    background: #222;
+    color: #ff0000;
+    border: 1px solid #444;
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity-btn:hover {
+    background: #ff0000;
+    color: white;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+.item-qty {
+    min-width: 30px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.remove-item {
+    background: transparent;
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.remove-item:hover {
+    background: #ff0000;
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+/* --- KOTAK TOTAL & CHECKOUT --- */
+.empty-cart {
+    text-align: center;
+    color: #777;
+    font-size: 1.5rem;
+    padding: 60px 20px;
+    font-style: italic;
+    border: 2px dashed #333;
+    border-radius: 10px;
+}
+
+.cart-summary {
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    border: 1px solid #333;
+    border-top: 4px solid #ff0000;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+#totalPrice {
+    color: #ff0000;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(90deg, #ff0000, #aa0000);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.btn-checkout:hover {
+    background: linear-gradient(90deg, #ff3333, #ff0000);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.8);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+    .cart-item { flex-direction: column; align-items: center; text-align: center; padding: 25px 15px; }
+    .cart-item-img { margin-right: 0; margin-bottom: 20px; width: 100%; height: 180px; }
+    .cart-item-actions { margin-top: 20px; width: 100%; flex-direction: column; gap: 15px; }
+    .remove-item { width: 100%; }
+}
+
+.payment-overlay {
+    display: none; 
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.85); 
+    backdrop-filter: blur(8px); 
+    z-index: 999999; 
+    justify-content: center; align-items: center;
+}
+
+.payment-container {
+    background: #111; 
+    border: 2px solid #ff0000; 
+    border-radius: 12px;
+    width: 90%; max-width: 500px; 
+    padding: 35px 25px; position: relative;
+    box-shadow: 0 15px 50px rgba(255, 0, 0, 0.4); 
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.payment-container h2 {
+    color: #fff; font-style: italic; text-align: center; margin-bottom: 25px;
+    text-transform: uppercase; border-bottom: 2px solid #333; padding-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.close-payment {
+    position: absolute; top: 15px; right: 25px; color: #888; 
+    font-size: 35px; cursor: pointer; transition: 0.3s; font-weight: bold;
+}
+.close-payment:hover { color: #ff0000; transform: scale(1.1); }
+
+.payment-options { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+
+.payment-method {
+    display: flex; align-items: center; background: #1a1a1a; padding: 15px;
+    border: 2px solid #333; border-radius: 8px; cursor: pointer; transition: 0.3s;
+}
+.payment-method:hover { border-color: #ff0000; background: #222; }
+
+
+.payment-method input[type="radio"] { margin-right: 15px; accent-color: #ff0000; transform: scale(1.5); }
+
+.method-content { display: flex; flex-direction: column; }
+.bank-name { color: #fff; font-weight: bold; font-size: 1.1rem; }
+.bank-desc { color: #aaa; font-size: 0.9rem; margin-top: 5px; font-style: italic; }
+
+.btn-confirm-pay {
+    width: 100%; padding: 18px; 
+    background: linear-gradient(90deg, #ff0000, #aa0000); 
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1.3rem; font-weight: 900; cursor: pointer; 
+    text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+}
+.btn-confirm-pay:hover { background: #cc0000; box-shadow: 0 0 25px rgba(255, 0, 0, 0.6); }
+
+/* --- STYLE STEP 2 (VA & QRIS) --- */
+.payment-details-box {
+    text-align: center;
+    margin-bottom: 25px;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+#selectedMethodName {
+    color: #ff0000;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.instruction-text {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Kotak Nomor VA */
+.va-box {
+    background: #000;
+    border: 2px dashed #ff0000;
+    padding: 15px;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #fff;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qris-box {
+    margin: 15px auto;
+    background: #fff;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 8px;
+    border: 4px solid #ff0000;
+}
+
+.timer-text {
+    color: #aaa;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+.success-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    filter: drop-shadow(0 0 25px rgba(0, 255, 0, 0.6)); 
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+.loading-text.success-mode {
+    color: #00ff00; 
+    animation: none; 
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+
+.address-section {
+    margin-bottom: 25px;
+}
+
+.address-section textarea {
+    width: 100%;
+    background: #1a1a1a;
+    border: 2px solid #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: none; 
+    transition: 0.3s;
+}
+
+.address-section textarea:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.address-section textarea::placeholder {
+    color: #666;
+    font-style: italic;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 20px 50px;
+    border-bottom: 3px solid #d32f2f; 
+    width: 100%;
+    margin: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d32f2f; 
+}
+
+.menu li .kembali{
+    color: black; 
+    border: 2px solid #ee0707;
+    padding: 8px 15px;
+    border-radius: 6px;
+    background: #ee0707;
+}
+
+.menu li a {
+    color: #888888; 
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+
+.menu li a:hover {
+    color: white;
+}
+
+
+.menu li a.aktif {
+    color: #ee0707; 
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
