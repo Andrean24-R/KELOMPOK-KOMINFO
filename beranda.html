@@ -1,80 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akira JDM Garage</title>
-    <link rel="stylesheet" href="CSS/beranda.css" />
-    <link rel="stylesheet" href="CSS/index.css" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Mikroskil Autospeed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/beranda.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-  <body>
-    <nav class="navbar">
-      <div class="logo">MIKROSKIL <span>AUTOSPEED</span></div>
-      <ul class="menu">
-        <li><a href="beranda.html" class="aktif">Beranda</a></li>
-        <li><a href="layanan.html">Layanan</a></li>
-        <li><a href="galeri.html">Galeri</a></li>
-        <li>
-          <a href="cart.html" class="cart-link">
-            🛒 Keranjang <span id="cartCount" class="cart-badge">0</span>
-          </a>
-        </li>
-        <li><a href="index.html">Kembali</a></li>
-      </ul>
-    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-    <header class="hero">
-      <video autoplay loop muted playsinline class="video-bg">
-        <source src="0310(2).mp4" type="video/mp4" />
-      </video>
-
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <h1>WE'RE BUILT, NOT BOUGHT.</h1>
-        <p>
-          Spesialis Tuning, Engine Swap 2JZ & RB26, dan Maintenance Mobil JDM Lu
-          Biar Nggak Cuma Jadi Pajangan Garasi.
-        </p>
-      </div>
+    <header>
+        <nav class="navbar">
+            <a href="beranda.html" class="logo">MIKROSKIL <span>AUTOSPEED</span></a>
+            
+            <button class="hamburger" id="hamburgerMenu"><span></span><span></span><span></span></button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" id="themeToggle" class="btn-theme"><i class="fa-solid fa-sun"></i></a></li>
+                <li><a href="beranda.html" class="active">Beranda</a></li>
+                <li><a href="katalog_knalpot.html">Katalog Knalpot</a></li>
+                <li><a href="aksesoris_body.html">Aksesoris</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="cart.html" class="cart-link">🛒 Keranjang <span id="cartCount" class="cart-badge">0</span></a></li>
+                <li><a href="index.html" class="btn-login-nav">Keluar</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="services">
-      <h2>LAYANAN BENGKEL</h2>
-      <div class="card-container">
-        <div class="card">
-          <h3>Engine Tuning</h3>
-          <p>
-            Remap ECU, dyno test, bikin mesin lu teriak sampai redline tanpa
-            brebet.
-          </p>
+    <header class="hero-bengkel">
+        <video autoplay loop muted playsinline class="video-bg">
+            <source src="0310(2).mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>WE'RE BUILT, <span>NOT BOUGHT.</span></h1>
+            <p>Spesialis Tuning, Engine Swap 2JZ & RB26, dan Maintenance Mobil JDM Lu Biar Nggak Cuma Jadi Pajangan Garasi.</p>
         </div>
-        <div class="card">
-          <h3>Kaki-Kaki & Fitment</h3>
-          <p>
-            Pasang coilover, airsus, roll fender biar velg TE37 lu masuk
-            sempurna.
-          </p>
+    </header>
+
+    <section class="services-summary">
+        <h2>LAYANAN BENGKEL</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Engine Tuning</h3>
+                <p>Remap ECU, dyno test, bikin mesin lu teriak sampai redline tanpa brebet.</p>
+            </div>
+            <div class="card">
+                <h3>Kaki-Kaki & Fitment</h3>
+                <p>Pasang coilover, airsus, roll fender biar velg TE37 lu masuk sempurna.</p>
+            </div>
+            <div class="card">
+                <h3>Restorasi Total</h3>
+                <p>Ngebangun ulang mobil JDM rongsok lu jadi mulus kayak baru keluar pabrik Suzuka.</p>
+            </div>
         </div>
-        <div class="card">
-          <h3>Restorasi Total</h3>
-          <p>
-            Ngebangun ulang mobil JDM rongsok lu jadi mulus kayak baru keluar
-            pabrik Suzuka.
-          </p>
-        </div>
-      </div>
     </section>
 
+    <section class="contact-section">
+        <h2>NONGKRONG BARENG KITA</h2>
+        <p>Pantau project terbaru atau langsung order part JDM lu via sosmed bengkel!</p>
+        <div class="social-links">
+            <a href="https://wa.me/6281373284741" target="_blank" class="soc-btn wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://instagram.com/mikroskilautospeed" target="_blank" class="soc-btn ig"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://tiktok.com/@mikroskilautospeed" target="_blank" class="soc-btn tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6281373284741" target="_blank" class="floating-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <footer>
-      <p>
-        &copy; 2026 MIKROSKIL AUTOSPEED Garage. Gaspol terus jangan kasih
-        kendor.
-      </p>
+        <p>&copy; 2026 MIKROSKIL AUTOSPEED Garage. Gaspol terus jangan kasih kendor.</p>
     </footer>
 
     <script src="JS/cart.js"></script>
     <script src="JS/script.js"></script>
-  </body>
+</body>
 </html>

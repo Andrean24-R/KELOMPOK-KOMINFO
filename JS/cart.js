@@ -1,4 +1,4 @@
-
+// --- CORE CART LOGIC ---
 const CART_KEY = 'mikroskil_cart';
 
 function getCart() { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
@@ -33,15 +33,12 @@ document.querySelectorAll('.btn-buy').forEach(btn => {
         
         saveCart(cart);
         
-        
         const cartSidebar = document.getElementById('cartSidebar');
         if (cartSidebar) cartSidebar.classList.add('open');
 
-        
         renderCartPage(); 
     });
 });
-
 
 const cartToggle = document.getElementById('cartToggle');
 const cartSidebar = document.getElementById('cartSidebar');
@@ -49,7 +46,6 @@ const closeCart = document.getElementById('closeCart');
 
 if (cartToggle && cartSidebar) cartToggle.onclick = () => cartSidebar.classList.toggle('open');
 if (closeCart && cartSidebar) closeCart.onclick = () => cartSidebar.classList.remove('open');
-
 
 function removeFromCart(productId) {
     let cart = getCart();
@@ -69,9 +65,8 @@ function updateQuantity(productId, newQuantity) {
     }
 }
 
-
+// INI FUNGSI BUAT NAMPILIN BARANG DI KERANJANG (JANGAN DIHANCURIN LAGI!)
 function renderCartPage() {
-    
     const container = document.getElementById('cartItemsContainer') || document.getElementById('cartItems');
     const summaryDiv = document.getElementById('cartSummary');
     const totalAmount = document.getElementById('totalAmount'); 
@@ -82,7 +77,7 @@ function renderCartPage() {
     const cart = getCart();
     
     if (cart.length === 0) {
-        container.innerHTML = '<p class="empty-cart" style="text-align:center; padding:20px; color:#aaa;">Keranjang lu masih kosong, Bos! Gas belanja dulu! 🏎️</p>';
+        container.innerHTML = '<p class="empty-cart">Keranjang lu masih kosong, Bos! Gas belanja dulu! 🏎️</p>';
         if (summaryDiv) summaryDiv.style.display = 'none';
         if (totalAmount) totalAmount.innerText = 'Rp 0';
         if (totalPrice) totalPrice.innerText = 'Rp 0';
@@ -96,23 +91,21 @@ function renderCartPage() {
         const subtotal = item.price * item.quantity;
         total += subtotal;
         
-       html += `
-            <div class="cart-item" data-id="${item.id}" style="display: flex; justify-content: space-between; margin-bottom: 15px; background: #1a1a1a; padding: 15px; border-radius: 8px; border-left: 3px solid #ff0000; align-items:center; gap: 10px;">
-                <img src="${item.image}" alt="${item.name}" style="width:60px; height:60px; border-radius:5px; object-fit:cover;">
-                <div style="flex:1;">
-                    <div style="color:#fff; font-weight:bold; font-size:14px;">${item.name}</div>
-                    <div style="color:#ff0000; font-weight:bold; margin-top:5px;">Rp ${item.price.toLocaleString('id-ID')}</div>
+        html += `
+            <div class="cart-item" data-id="${item.id}">
+                <img class="cart-item-img" src="${item.image}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">${item.name}</div>
+                    <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')}</div>
                 </div>
                 
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <div style="display:flex; align-items:center; gap:5px; background:#111; padding:5px; border-radius:5px;">
-                        <button class="quantity-btn minus" data-id="${item.id}" style="background:#222; color:#fff; border:none; padding:5px 12px; cursor:pointer; font-size:16px; font-weight:bold; border-radius:3px;">-</button>
-                        
-                        <span style="color:#fff; font-weight:bold; font-size:16px; min-width:30px; text-align:center; display:inline-block;">${item.quantity}</span>
-                        
-                        <button class="quantity-btn plus" data-id="${item.id}" style="background:#222; color:#fff; border:none; padding:5px 12px; cursor:pointer; font-size:16px; font-weight:bold; border-radius:3px;">+</button>
+                <div class="cart-item-actions">
+                    <div class="quantity-control">
+                        <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                        <span class="item-qty">${item.quantity}</span>
+                        <button class="quantity-btn plus" data-id="${item.id}">+</button>
                     </div>
-                    <button class="remove-item" data-id="${item.id}" style="background:none; border:none; color:#ff0000; cursor:pointer; font-size: 20px; transition:0.3s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">🗑️</button>
+                    <button class="remove-item" data-id="${item.id}">🗑️</button>
                 </div>
             </div>
         `;
@@ -122,7 +115,6 @@ function renderCartPage() {
     if (totalPrice) totalPrice.textContent = `Rp ${total.toLocaleString('id-ID')}`;
     if (totalAmount) totalAmount.innerText = `Rp ${total.toLocaleString('id-ID')}`;
     if (summaryDiv) summaryDiv.style.display = 'block';
-
     
     document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
         btn.onclick = (e) => {
@@ -162,7 +154,8 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             clearInterval(countdownInterval);
             alert("WAKTU LU ABIS, TONG! Transaksi batal otomatis.");
-            document.getElementById('paymentModal').style.display = 'none';
+            const modal = document.getElementById('paymentModal');
+            if(modal) modal.style.display = 'none';
         }
     }, 1000);
 }
@@ -188,31 +181,46 @@ function lanjutKePembayaran() {
         return;
     }
 
-    const selectedMethod = document.querySelector('input[name="payment"]:checked').value;
+    const selectedMethodEl = document.querySelector('input[name="payment"]:checked');
+    const selectedMethod = selectedMethodEl ? selectedMethodEl.value : 'BCA Virtual Account';
+
     const step1 = document.getElementById('step1');
     const step2 = document.getElementById('step2');
     
     document.getElementById('selectedMethodName').innerText = selectedMethod;
     const instruction = document.getElementById('paymentInstruction');
+    
     const vaBox = document.getElementById('vaCodeContainer');
-    const qrisBox = document.getElementById('qrisContainer');
+    const qrisBox = document.getElementById('qrisContainer'); 
 
     if (selectedMethod === "COD") {
-        vaBox.style.display = 'none';
-        qrisBox.style.display = 'none';
+        if(vaBox) vaBox.style.display = 'none';
+        if(qrisBox) qrisBox.style.display = 'none';
         instruction.innerText = "Siapkan uang pas saat kurir ngirim part ke alamat lu!";
     } else if (selectedMethod === "QRIS") {
-        vaBox.style.display = 'none';
-        qrisBox.style.display = 'inline-block';
+        if(vaBox) vaBox.style.display = 'none';
+        if(qrisBox) {
+            qrisBox.style.display = 'inline-block';
+            
+            // LOGIKA BIKIN QR CODE RANDOM PAKE API
+            const qrisImg = qrisBox.querySelector('img');
+            const randomInvoice = "INV-" + Math.floor(10000000 + Math.random() * 90000000);
+            
+            if(qrisImg) {
+                qrisImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=MIKROSKIL-AUTOSPEED-${randomInvoice}`;
+            }
+        }
         instruction.innerText = "Scan QR Code di bawah pakai M-Banking / E-Wallet lu:";
     } else {
-        vaBox.style.display = 'flex';
-        qrisBox.style.display = 'none';
+        if(vaBox) vaBox.style.display = 'flex';
+        if(qrisBox) qrisBox.style.display = 'none';
         instruction.innerText = "Silakan transfer ke nomor Virtual Account berikut:";
-        document.getElementById('vaNumber').innerText = "88" + Math.floor(10000000 + Math.random() * 90000000); 
+        const vaNumberEl = document.getElementById('vaNumber');
+        if(vaNumberEl) vaNumberEl.innerText = "88" + Math.floor(10000000 + Math.random() * 90000000); 
     }
 
-    startTimer(15 * 60, document.querySelector('#paymentTimer'));
+    const timerDisplay = document.querySelector('#paymentTimer');
+    if(timerDisplay) startTimer(15 * 60, timerDisplay);
 
     step1.style.display = 'none';
     step2.style.display = 'block';
@@ -220,30 +228,120 @@ function lanjutKePembayaran() {
 
 function prosesVerifikasiFinal() {
     const addressInput = document.getElementById('shippingAddress').value; 
+    
+    // TANGKEP METODE PEMBAYARAN LU DI SINI
+    const selectedMethodEl = document.querySelector('input[name="payment"]:checked');
+    const selectedMethod = selectedMethodEl ? selectedMethodEl.value : 'Tidak Diketahui';
+
     clearInterval(countdownInterval); 
-    document.getElementById('paymentModal').style.display = 'none';
+    const paymentModal = document.getElementById('paymentModal');
+    if(paymentModal) paymentModal.style.display = 'none';
 
     const loading = document.getElementById('loadingOverlay');
     if (loading) {
         loading.style.display = 'flex';
+        
+        const cart = getCart();
+        let rincianBelanja = '';
+        let totalSemua = 0;
+        
+        // FUNGSI INI CUMA BUAT BIKIN ISI TABEL INVOICE AJA!
+        cart.forEach((item, index) => {
+            let subtotal = item.price * item.quantity;
+            totalSemua += subtotal;
+            rincianBelanja += `
+                <tr>
+                    <td style="border: 1px solid #ccc; padding: 6px; text-align: center;">${index + 1}</td>
+                    <td style="border: 1px solid #ccc; padding: 6px; font-weight: bold; word-wrap: break-word; white-space: normal;">${item.name}</td>
+                    <td style="border: 1px solid #ccc; padding: 6px; text-align: center;">${item.quantity}</td>
+                    <td style="border: 1px solid #ccc; padding: 6px; word-wrap: break-word; white-space: normal;">Rp ${item.price.toLocaleString('id-ID')}</td>
+                    <td style="border: 1px solid #ccc; padding: 6px; font-weight: bold; color: #d32f2f; word-wrap: break-word; white-space: normal;">Rp ${subtotal.toLocaleString('id-ID')}</td>
+                </tr>
+            `;
+        });
+
+        const tgl = new Date();
+        const tanggalCetak = tgl.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
         setTimeout(() => {
             localStorage.removeItem(CART_KEY);
             updateCartCount();
 
-            document.getElementById('loadingSpinner').style.display = 'none';
-            document.getElementById('successIcon').style.display = 'block';
+            const spinner = document.getElementById('loadingSpinner');
+            if(spinner) spinner.style.display = 'none';
+            
+            const sIcon = document.getElementById('successIcon');
+            if(sIcon) sIcon.style.display = 'none'; 
             
             const loadingText = document.getElementById('loadingText');
-            loadingText.innerHTML = `TRANSAKSI BERHASIL!<br><span style="font-size: 16px; color: #ccc;">Barang siap dikirim ke:<br>${addressInput}</span>`; 
-            loadingText.classList.add('success-mode');
+            if(loadingText) {
+                loadingText.innerHTML = `
+                    <div id="invoiceArea" style="position: relative; text-align: left; background: #fff; color: #000; padding: 35px; border-radius: 8px; width: 90%; max-width: 750px; margin: 0 auto; font-family: 'Poppins', sans-serif; font-size: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                        
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); color: rgba(0, 0, 0, 0.05); white-space: nowrap; font-weight: 900; z-index: 0; pointer-events: none; font-family: 'Anton', sans-serif; text-transform: uppercase; line-height: 1; text-align: center;">
+                            <span style="font-size: clamp(40px, 5vw, 70px);">MIKROSKIL AUTOSPEED</span><br>
+                            <span style="font-size: clamp(60px, 8vw, 100px);">LUNAS</span>
+                        </div>
 
+                        <div style="position: relative; z-index: 1;">
+                            
+                            <div style="text-align: center; border-bottom: 3px solid #111; padding-bottom: 15px; margin-bottom: 25px;">
+                                <h2 style="margin: 0; font-family: 'Anton', sans-serif; color: #d32f2f; font-size: 32px; font-style: italic; letter-spacing: 1px;">MIKROSKIL AUTOSPEED</h2>
+                                <p style="margin: 5px 0 0 0; color: #666; font-size: 13px; font-weight: bold;">Spesialis Tuning, Engine Swap & Maintenance JDM</p>
+                                <h3 style="margin: 15px 0 0 0; color: #000; letter-spacing: 3px;">BUKTI PEMBAYARAN SAH</h3>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 25px; border-bottom: 1px dashed #ccc; padding-bottom: 20px;">
+                                <div>
+                                    <p style="margin: 0; color: #666; font-size: 12px;">DIKIRIM KE:</p>
+                                    <p style="margin: 5px 0 0 0; color: #111; font-weight: bold; max-width: 300px; line-height: 1.4;">${addressInput}</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="margin: 0; color: #666; font-size: 12px;">TANGGAL TRANSAKSI:</p>
+                                    <p style="margin: 2px 0 10px 0; color: #111; font-weight: bold;">${tanggalCetak}</p>
+                                    
+                                    <p style="margin: 0; color: #666; font-size: 12px;">METODE PEMBAYARAN:</p>
+                                    <p style="margin: 2px 0 0 0; color: #d32f2f; font-weight: 900; text-transform: uppercase;">${selectedMethod}</p>
+                                    
+                                    <h3 style="color: #25D366; margin: 15px 0 0 0; border: 3px solid #25D366; display: inline-block; padding: 5px 15px; transform: rotate(-5deg); letter-spacing: 2px; font-family: 'Anton', sans-serif;">PAID</h3>
+                                </div>
+                            </div>
+
+                            <table style="width: 100%; max-width: 100%; table-layout: fixed; border-collapse: collapse; background: rgba(255, 255, 255, 0.9); font-size: 11px;">
+                            <thead>
+                                <tr style="background: #111; color: #fff;">
+                                    <th style="border: 1px solid #333; padding: 6px; text-align: center; width: 5%;">NO</th>
+                                    <th style="border: 1px solid #333; padding: 6px; text-align: left; width: 35%; word-wrap: break-word; white-space: normal;">MEREK / NAMA PART</th>
+                                    <th style="border: 1px solid #333; padding: 6px; text-align: center; width: 10%;">QTY</th>
+                                    <th style="border: 1px solid #333; padding: 6px; text-align: left; width: 25%; word-wrap: break-word; white-space: normal;">HARGA SATUAN</th>
+                                    <th style="border: 1px solid #333; padding: 6px; text-align: left; width: 25%; word-wrap: break-word; white-space: normal;">SUBTOTAL</th>
+                                </tr>
+                            </thead>
+                                    <tbody>
+                                        ${rincianBelanja}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr style="background: #f9f9f9;">
+                                            <td colspan="4" style="border: 1px solid #ccc; padding: 15px; text-align: right; font-weight: bold; font-size: 16px; font-family: 'Oswald', sans-serif;">TOTAL KESELURUHAN:</td>
+                                            <td style="border: 1px solid #ccc; padding: 15px; font-weight: 900; font-size: 18px; color: #d32f2f; white-space: nowrap;">Rp ${totalSemua.toLocaleString('id-ID')}</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                        </div>
+                    </div>
+                    <br>
+                    <button onclick="window.print()" class="btn-print" style="padding:15px 30px; background:linear-gradient(90deg, #ff0000, #aa0000); color:white; border:none; font-weight:bold; cursor:pointer; border-radius:8px; font-size: 1.2rem; letter-spacing: 2px; box-shadow: 0 5px 15px rgba(255,0,0,0.4);">🖨️ CETAK INVOICE SEKARANG</button>
+                `; 
+                loadingText.classList.add('success-mode');
+            }
+
+            // GUE KASIH WAKTU 15 DETIK BIAR PELANGGAN LU BISA NIKMATIN INVOICENYA!
             setTimeout(() => {
                 window.location.href = 'beranda.html'; 
-            }, 3500); 
+            }, 15000); 
         }, 3000);
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
@@ -254,7 +352,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closePayment = document.getElementById('closePayment');
     if (closePayment) closePayment.addEventListener('click', () => {
-        document.getElementById('paymentModal').style.display = 'none';
+        const pm = document.getElementById('paymentModal');
+        if(pm) pm.style.display = 'none';
     });
 
     const btnLanjut = document.getElementById('btnLanjutBayar');

@@ -1,12 +1,20 @@
 .gallery-section {
-    padding: 60px 50px;
+    padding: 100px 5% 60px 5%;
     text-align: center;
 }
 
 .gallery-section h1 {
-    font-size: 3rem;
-    color: #ff0000;
+    font-family: var(--font-headings, 'Oswald', sans-serif);
+    font-size: clamp(30px, 5vw, 45px);
+    color: var(--primary-red);
+    text-transform: uppercase;
+    font-style: italic;
     margin-bottom: 10px;
+}
+
+.gallery-section p {
+    color: #ccc;
+    font-size: 1.1rem;
 }
 
 .gallery-grid {
@@ -17,11 +25,12 @@
 }
 
 .gallery-item {
-    background-color: #242424;
+    background-color: #1a1a1a;
     border: 2px solid #333;
     border-radius: 8px;
     overflow: hidden; 
     transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
 }
 
 .gallery-item img {
@@ -48,122 +57,89 @@
     color: #fff;
 }
 
-
-/* --- MODAL LIGHTBOX STYLE --- */
+/* --- MODAL LIGHTBOX GLASSMORPHISM --- */
 .modal {
-    display: none; /* Sembunyi dulu sebelum diklik */
+    display: none; 
     position: fixed;
-    z-index: 1000;
-    padding-top: 50px;
-    left: 0;
+    z-index: 999999; 
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Hitam pekat transparan */
+    background-color: rgba(0, 0, 0, 0.6); /* Hitam pudar */
+    backdrop-filter: blur(10px); /* Bikin latar ngeblur estetik */
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* INI KUNCI BIAR GAMBAR LU KAGAK CIUT NYANGKUT! */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 900px;
-    border: 3px solid #ff0000; /* Kasih list merah JDM biar galak */
-    animation: zoom 0.3s; /* Efek muncul pelan */
+/* Paksa Flexbox jalan pas modal dibuka via JS */
+.modal[style*="display: block"] {
+    display: flex !important;
 }
 
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #fff;
-    padding: 15px 0;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Tombol Close (Silang) */
 .close {
     position: absolute;
     top: 20px;
     right: 35px;
     color: #fff;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 1000001; 
+    transition: 0.3s;
 }
 
 .close:hover {
     color: #ff0000;
+    transform: scale(1.1); 
 }
 
-/* Animasi Zoom Pas Buka */
-@keyframes zoom {
-    from {transform: scale(0.5)} 
-    to {transform: scale(1)}
-}
-
-/* --- MODAL LIGHTBOX STYLE --- */
-.modal {
-    display: none; /* Sembunyi dulu sebelum diklik */
-    position: fixed;
-    z-index: 1000;
-    padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Hitam pekat transparan */
-}
-
+/* --- GAMBAR YANG MEMBESAR --- */
 .modal-content {
-    margin: auto;
     display: block;
-    width: 95%; /* Di HP, penuhin aja layarnya (sisain dikit margin) */
-    max-height: 80vh; /* Biar nggak kepotong bawahnya */
-    object-fit: contain; /* Jaga rasio foto biar nggak gepeng */
-    border: 2px solid #ff0000;
-    animation: zoom 0.3s;
+    width: auto;
+    max-width: 85vw; 
+    max-height: 80vh; 
+    object-fit: contain; 
+    border: 4px solid #ff0000; 
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); 
+    animation: zoomInModal 0.4s ease-out forwards; 
 }
 
-/* Kalau layar lebih lebar dari 768px (Desktop/Laptop) */
-@media only screen and (min-width: 768px) {
+/* --- CAPTION --- */
+#caption {
+    font-family: var(--font-headings, 'Oswald', sans-serif);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.5); 
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+/* --- ANIMASI MUNCUL --- */
+@keyframes zoomInModal {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* --- FIX UNTUK LAYAR HP --- */
+@media only screen and (max-width: 768px) {
     .modal-content {
-        width: auto; /* Jangan paksa 95% lagi */
-        max-width: 700px; /* Batasin lebarnya cuma 700px aja biar nggak nge-zoom parah */
-        max-height: 85vh; /* Biar tingginya pas di monitor */
+        max-width: 95vw; 
+        max-height: 70vh;
     }
-}
-
-#caption {
-    margin: auto;
-    display: block;
-    width: 50%;
-    max-width: 700px;
-    text-align: center;
-    color: #fff;
-    padding: 15px 0;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover {
-    color: #ff0000;
-}
-
-/* Animasi Zoom Pas Buka */
-@keyframes zoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
+    .close {
+        top: 15px;
+        right: 20px;
+        font-size: 40px;
+    }
 }

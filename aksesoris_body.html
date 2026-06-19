@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="id">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Layanan - Mikroskil Autospeed</title>
-    <link rel="stylesheet" href="CSS/index.css" />
-    <link rel="stylesheet" href="CSS/katalog.css" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Knalpot - Mikroskil Autospeed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/katalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
-    <nav class="navbar">
-      <div class="logo">MIKROSKIL <span>AUTOSPEED</span></div>
-      <ul class="menu">
-        <li><a href="beranda.html">Beranda</a></li>
-        <li><a href="katalog_knalpot.html">Katalog Kenalpot</a></li>
-        <li><a href="aksesoris_body.html" class="aktif">Aksesoris</a></li>
-        <li><a href="layanan.html">Layanan</a></li>
-        <li>
-          <a href="cart.html" class="cart-link">
-            🛒 Keranjang <span id="cartCount" class="cart-badge">0</span>
-          </a>
-        </li>
-        <li><a href="index.html" class="kembali">Kembali</a></li>
-      </ul>
-    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <header>
+        <nav class="navbar">
+            <a href="beranda.html" class="logo">MIKROSKIL <span>AUTOSPEED</span></a>
+            <button class="hamburger" id="hamburgerMenu"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" id="themeToggle" class="btn-theme"><i class="fa-solid fa-sun"></i></a></li>
+                <li><a href="beranda.html">Beranda</a></li>
+                <li><a href="katalog_knalpot.html">Katalog Knalpot</a></li>
+                <li><a href="aksesoris_body.html"  class="active">Aksesoris</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="cart.html" class="cart-link">🛒 Keranjang <span id="cartCount" class="cart-badge">0</span></a></li>
+                <li><a href="index.html" class="btn-login-nav">Keluar</a></li>
+            </ul>
+        </nav>
+    </header>
     
-    <div id="videoModal" class="video-overlay">
-        <div class="video-container">
-            <span class="close-video">&times;</span>
-            <video id="myVideo" width="100%" controls>
-                <source src="video-balap.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
     <section class="katalog-container">
         <div class="katalog-header">
             <h1>Aksesoris Body & Velg </h1>
@@ -142,6 +137,10 @@
 
         </div>
     </section>
+
+    <a href="https://wa.me/6281373284741" target="_blank" class="floating-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <footer>
             <p>&copy; 2026 MIKROSKIL AUTOSPEED Garage. Gaspol terus jangan kasih kendoa.</p>

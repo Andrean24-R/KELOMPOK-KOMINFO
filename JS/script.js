@@ -19,20 +19,53 @@ if (loginForm) {
     });
 }
 
-const logo = document.getElementById('easterEgg');
-const modal = document.getElementById('videoModal');
-const closeVideo = document.querySelector('.close-video');
-const vidEGG = document.getElementById('myVideo');
 
-if (logo) {
-    logo.onclick = () => {
-        if(modal) modal.style.display = 'flex';
-        if(vidEGG) vidEGG.play();
-    };
+// --- KODE BARU: LOGIKA HAMBURGER MENU RESPONSIVITAS MOBILE ---
+const hamburger = document.getElementById('hamburgerMenu');
+const navLinks = document.getElementById('navLinks');
+const menuOverlay = document.getElementById('menuOverlay');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+    });
 }
-if (closeVideo) {
-    closeVideo.onclick = () => {
-        if(modal) modal.style.display = 'none';
-        if(vidEGG) vidEGG.pause();
-    };
+
+if (menuOverlay) {
+    menuOverlay.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        menuOverlay.classList.remove('active');
+    });
 }
+
+// --- MESIN TEMA GELAP TERANG ---
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    
+    // Cek memori, kemaren user milih tema apa?
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-mode');
+        if(themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            body.classList.toggle('light-mode');
+            
+            // Simpan pilihan ke otak browser
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
+        });
+    }
+});
+

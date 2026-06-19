@@ -1,0 +1,381 @@
+/* --- CORE STYLES & VARIABLES --- */
+:root {
+    --primary-red: #ff0000;
+    --darker-red: #d32f2f;
+    --bg-black: #121212;
+    --card-bg: #1a1a1a;
+    --text-white: #ffffff;
+    --text-gray: #cccccc;
+    --font-headings: 'Oswald', sans-serif;
+    --font-logo: 'Anton', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+a { 
+    text-decoration: none; 
+    transition: var(--transition); 
+    color: inherit; 
+}
+
+ul { 
+    list-style: none; 
+}
+
+/* --- HEADER & RESPONSIVE NAVBAR --- */
+header {
+    background-color: #000000;
+    border-bottom: 3px solid var(--primary-red);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: var(--font-logo);
+    font-size: clamp(24px, 4vw, 32px);
+    color: var(--primary-red);
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0px rgba(0,0,0,1);
+}
+
+.logo span { 
+    color: #ffffff; 
+    font-family: var(--font-headings); 
+    font-weight: 400;
+}
+
+/* HAMBURGER MENU BUTTON */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-white);
+    transition: var(--transition);
+}
+
+/* NAV LINKS (DESKTOP VERSION) */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-family: var(--font-headings);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #bbbbbb;
+    letter-spacing: 1px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active { 
+    color: var(--text-white); 
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-red);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after { 
+    width: 100%; 
+}
+
+/* CART BADGE & LINK STYLE */
+.cart-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cart-badge {
+    background: var(--primary-red);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 6px;
+    line-height: 1.2;
+}
+
+.btn-login-nav {
+    font-family: var(--font-headings);
+    background-color: var(--primary-red);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    border: 2px solid transparent;
+}
+
+.btn-login-nav:hover {
+    background-color: transparent;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+/* MOBILE OVERLAY SHADE */
+/* MOBILE OVERLAY SHADE */
+.menu-overlay {
+    display: none;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); 
+    
+    /* INI KUNCINYA! TURUNIN DI BAWAH HEADER (1000) */
+    z-index: 990; 
+    
+    pointer-events: none;
+}
+.menu-overlay.active { 
+    display: block; 
+    pointer-events: auto;
+    display: block;  
+}
+
+
+/* --- FOOTER STYLE --- */
+footer {
+    background-color: #000000;
+    color: #666666;
+    text-align: center;
+    padding: 25px 0;
+    border-top: 1px solid #222222;
+    font-size: 14px;
+}
+
+/* --- MOBILE RESPONSIVE ENGINE (BREAKPOINT 992PX) --- */
+@media screen and (max-width: 992px) {
+    .hamburger { 
+        display: block; 
+    }
+
+   .nav-links {
+    position: fixed; 
+    top: 0; 
+    right: -100%; 
+    height: 100vh; 
+    width: 70%; 
+    max-width: 300px;
+    background-color: rgba(0, 0, 0, 0.98); 
+    backdrop-filter: blur(10px);
+    flex-direction: column; 
+    justify-content: center; 
+    gap: 30px; 
+    padding: 80px 40px;
+    transition: var(--transition); 
+    border-left: 2px solid var(--primary-red); 
+    z-index: 1050;
+    pointer-events: auto; /* TAMBAH INI BIAR GAK KEBLOKIR SAMA OVERLAY */
+}
+
+    .nav-links.active { 
+        right: 0; 
+    }
+
+    .nav-links a { 
+        font-size: 18px; 
+        width: 100%; 
+        text-align: center; 
+    }
+    
+    .btn-login-nav { 
+        width: 100%; 
+        text-align: center; 
+        margin-top: 10px; 
+    }
+
+    /* Transform Hamburger to 'X' */
+    .hamburger.active span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+}
+
+/* --- CONTACT US SECTION --- */
+.contact-section {
+    background-color: #0a0a0a;
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 2px solid #222;
+}
+
+.contact-section h2 {
+    font-family: var(--font-headings);
+    color: var(--primary-red);
+    font-size: clamp(30px, 4vw, 40px);
+    text-transform: uppercase;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    color: #aaaaaa;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.soc-btn {
+    padding: 12px 25px;
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+/* Warna Asli Sosmed + Efek Hover */
+.soc-btn.wa { 
+    background-color: #25D366; 
+}
+.soc-btn.wa:hover { 
+    background-color: transparent; 
+    border-color: #25D366; 
+    color: #25D366; 
+}
+
+.soc-btn.ig { 
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+}
+.soc-btn.ig:hover { 
+    background: transparent; 
+    border-color: #dc2743; 
+    color: #dc2743; 
+}
+
+.soc-btn.tt { 
+    background-color: #111111; 
+    border-color: #01FFFF; 
+}
+.soc-btn.tt:hover { 
+    background-color: #01FFFF; 
+    color: #000000; 
+    border-color: #ff0050; 
+}
+
+/* --- FLOATING WHATSAPP --- */
+.floating-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    z-index: 99999; /* Biar kaga ketiban apapun */
+    transition: var(--transition);
+}
+
+.floating-wa:hover {
+    transform: scale(1.15) rotate(-10deg);
+    color: white;
+}
+
+/* --- LIGHT MODE OVERRIDES --- */
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #111;
+}
+
+body.light-mode .navbar {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+body.light-mode .navbar a {
+    color: #111;
+}
+
+body.light-mode .contact-section,
+body.light-mode footer {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+    color: #111;
+}
+
+body.light-mode .gallery-item {
+    background: #fff;
+    border-color: #ccc;
+}
+
+body.light-mode .gallery-item .desc {
+    color: #111;
+}
+
+.btn-theme {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #fff;
+}
+

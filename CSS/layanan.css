@@ -1,6 +1,6 @@
 /* --- LAYANAN STYLE --- */
 .services-section {
-    padding: 80px 20px;
+    padding: 100px 5% 60px 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -68,29 +68,13 @@
 /* Media Query Tambahan biar makin mantap di HP */
 @media screen and (max-width: 600px) {
     .services-header h1 {
-        font-size: 2.2rem;
-    }
+    font-family: var(--font-headings);
+    font-size: clamp(30px, 5vw, 45px);
+    color: var(--primary-red);
+    text-transform: uppercase;
+    font-style: italic;
+    margin-bottom: 15px;
 }
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000000;
-    padding: 20px 50px;
-    border-bottom: 3px solid #d32f2f; 
-    width: 100%;
-    margin: 0;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.logo span {
-    color: #d32f2f; 
 }
 
 .menu li .kembali{

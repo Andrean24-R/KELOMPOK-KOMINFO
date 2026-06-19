@@ -1,157 +1,120 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .katalog-container {
-  padding: 60px 50px;
-  background-color: #121212;
+    padding: 100px 5% 60px 5%;
+    margin: 0 auto;
 }
 
 .katalog-header {
-  text-align: center;
-  margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .katalog-header h1 {
-  font-size: 2.5rem;
-  color: #ff0000;
-  text-transform: uppercase;
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-.katalog-header p {
-  color: #aaaaaa;
+    font-family: var(--font-headings);
+    font-size: clamp(30px, 5vw, 45px);
+    color: var(--primary-red);
+    text-transform: uppercase;
+    font-style: italic;
 }
 
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
-/* Card Produk */
 .product-card {
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: 0.3s ease;
-  text-align: center;
+    background-color: var(--card-bg);
+    border: 1px solid #252525;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
 }
 
 .product-card:hover {
-  border-color: #ff0000;
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+    border-color: var(--primary-red);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.15);
 }
 
 .product-img img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 2px solid #222;
 }
 
 .product-info {
-  padding: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
 .product-info h3 {
-  color: #ffffff;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
+    font-family: var(--font-headings);
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
 }
 
 .product-info .desc {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-  height: 40px; /* Biar tinggi teks deskripsi seragam */
+    color: var(--text-gray);
+    font-size: 13px;
+    margin-bottom: 15px;
+    height: 40px;
 }
 
 .product-info .price {
-  color: #ff0000;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+    color: var(--primary-red);
+    font-family: var(--font-headings);
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
 }
 
 .btn-buy {
-  width: 100%;
-  padding: 12px;
-  background-color: #ff0000;
-  color: white;
-  border: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: 0.3s;
+    font-family: var(--font-headings);
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 1px;
 }
 
 .btn-buy:hover {
-  background-color: #cc0000;
+    background-color: #cc0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
 }
 
-footer {
-  background-color: #000;
-  color: #666;
-  text-align: center;
-  padding: 20px 0;
-  border-top: 1px solid #333;
+.search-container {
+    max-width: 800px;
+    margin: 20px auto 40px auto;
+    padding: 0 20px;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #000000;
-  padding: 20px 50px;
-  border-bottom: 3px solid #d32f2f;
-  width: 100%;
-  margin: 0;
+.search-box {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    background: #111;
+    color: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: 2px;
+.search-box:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
 }
 
-.logo span {
-  color: #d32f2f;
-}
-
-.menu li .kembali {
-  color: black;
-  border: 2px solid #ee0707;
-  padding: 8px 15px;
-  border-radius: 6px;
-  background: #ee0707;
-}
-
-.menu li a {
-  color: #888888;
-  text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: color 0.3s;
-}
-
-.menu li a:hover {
-  color: white;
-}
-
-.menu li a.aktif {
-  color: #ee0707;
-  border-bottom: 2px solid #ee0707;
-  padding-bottom: 7px;
-}
-
-.menu {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+body.light-mode .search-box {
+    background: #fff;
+    color: #111;
+    border-color: #ccc;
 }

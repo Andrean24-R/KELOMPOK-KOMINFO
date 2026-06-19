@@ -1,72 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpeedShop - Gudang Part Racing & JDM</title>
-    <link rel="stylesheet" href="CSS/index.css" />
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
 
-  <body>
-   <nav class="navbar">
-      <div class="logo">MIKROSKIL <span>AUTOSPEED</span></div>
-      <ul class="menu">
-        <li><a href="login.html">Beranda</a></li>
-        <li><a href="login.html"34w>Katalog Kenalpot</a></li>
-        <li><a href="login.html">Aksesoris</a></li>
-        <li><a href="login.html">Galery</a></li>
-        <li><a href="login.html">Layanan</a></li>
-        <li><a href="login.html" class="btn-login , kembali">Login Member</a></li>
-      </ul>
-      </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-    <div id="videoModal" class="video-overlay">
-      <span class="close-video">&times;</span>
-      <div class="video-container">
-        <video id="myVideo" width="100%" controls>
-          <source src="video-balap.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">MIKROSKIL <span>AUTOSPEED</span></a>
+            
+            <button class="hamburger" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" id="themeToggle" class="btn-theme"><i class="fa-solid fa-sun"></i></a></li>
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="login.html">Katalog Knalpot</a></li>
+                <li><a href="login.html">Aksesoris</a></li>
+                <li><a href="login.html">Galeri</a></li>
+                <li><a href="login.html">Layanan</a></li>
+                <li>
+                    <a href="login.html" class="cart-link">
+                        🛒 Keranjang <span id="cartCount" class="cart-badge">0</span>
+                    </a>
+                </li>
+                <li><a href="login.html" class="btn-login-nav">Login Member</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <section class="hero">
-      <video autoplay loop muted playsinline class="video-bg">
-        <source src="video-balap.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1>Upgrade Tunggangan Lu Sekarang!</h1>
-        <p>
-          Pusatnya part racing, knalpot brong, dan aksesoris JDM paling lengkap.
-          Biar bisa checkout barang atau ngecek resi, lu wajib masuk ke akun lu
-          dulu.
-        </p>
-        <a href="login.html" class="btn-shop">Login Buat Belanja</a>
-      </div>
+        <video autoplay loop muted playsinline class="video-bg">
+            <source src="video-balap.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Upgrade Tunggangan <span>Lu Sekarang!</span></h1>
+            <p>Pusatnya part racing, knalpot brong, dan aksesoris JDM paling lengkap. Biar bisa checkout barang atau ngecek resi, lu wajib masuk ke akun lu dulu Bos!</p>
+            <a href="login.html" class="btn-shop">Login Buat Belanja</a>
+        </div>
     </section>
 
     <section class="history-section">
-      <div class="history-container">
-        <h2>Sejarah MIKROSKIL AUTOSPEED</h2>
-        <div class="history-content">
-          <p>
-            Berawal dari garasi sempit di tahun 1945, MIKROSKIL AUTOSPEED
-            dibangun dari darah, keringat, dan bau oli. Kami ga cuma jualan
-            part, kami hidup dan napas di jalanan.
-          </p>
-          <p>
-            Sekarang, MIKROSKIL AUTOSPEED udah jadi markas besar buat para speed
-            hunter. Kalau kamu cuma nyari barang murahan yang gampang karatan,
-            mending kamu puter balik saja!
-          </p>
+        <div class="history-container">
+            <h2>Sejarah MIKROSKIL AUTOSPEED</h2>
+            <div class="history-content">
+                <p>Berawal dari garasi sempit di tahun 1945, MIKROSKIL AUTOSPEED dibangun dari darah, keringat, dan bau oli. Kami ga cuma jualan part, kami hidup dan bernapas di jalanan keras.</p>
+                <p>Sekarang, MIKROSKIL AUTOSPEED udah jadi markas besar buat para speed hunter di Medan. Kalau kamu cuma nyari barang murahan yang gampang karatan, mending kamu puter balik saja!</p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <audio id="bgMusic" autoplay loop>
-      <source src="video-balap.mp3" type="audio/mpeg" />
-    </audio>
+    <section class="contact-section">
+        <h2>NONGKRONG BARENG KITA</h2>
+        <p>Pantau project terbaru atau langsung order part JDM lu via sosmed bengkel!</p>
+        <div class="social-links">
+            <a href="https://wa.me/6281234567890" target="_blank" class="soc-btn wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://instagram.com/mikroskilautospeed" target="_blank" class="soc-btn ig"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://tiktok.com/@mikroskilautospeed" target="_blank" class="soc-btn tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+        </div>
+    </section>
 
+    <a href="https://wa.me/6281373284741" target="_blank" class="floating-wa">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 MIKROSKIL AUTOSPEED Garage. Gaspol terus jangan kasih kendor.</p>
+    </footer>
+
+    <script src="JS/cart.js"></script>
     <script src="JS/script.js"></script>
-  </body>
+</body>
 </html>

@@ -1,6 +1,3 @@
-
-
-/* Animasi Muncul */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -8,16 +5,17 @@
 
 .cart-container {
     max-width: 1000px;
-    margin: 60px auto;
+    margin: 100px auto 60px auto;
     padding: 0 20px;
     animation: fadeInUp 0.8s ease-out;
 }
 
 .cart-container h1 {
-    color: #ff0000;
+    font-family: var(--font-headings);
+    color: var(--primary-red);
     font-style: italic;
     margin-bottom: 40px;
-    font-size: 3rem;
+    font-size: clamp(30px, 5vw, 45px);
     text-transform: uppercase;
     letter-spacing: 3px;
     text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
@@ -41,9 +39,9 @@
 }
 
 .cart-item:hover {
-    border-left-color: #ff0000;
+    border-left-color: var(--primary-red);
     border-right-color: rgba(255, 0, 0, 0.3);
-    transform: translateX(15px); /* Efek ngegas ke kanan */
+    transform: translateX(15px);
     box-shadow: -10px 10px 25px rgba(255, 0, 0, 0.15);
     background: rgba(30, 30, 30, 0.9);
 }
@@ -59,7 +57,7 @@
 }
 
 .cart-item:hover .cart-item-img {
-    border-color: #ff0000;
+    border-color: var(--primary-red);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
 }
 
@@ -68,6 +66,7 @@
 }
 
 .cart-item-title {
+    font-family: var(--font-headings);
     color: #fff;
     font-size: 1.4rem;
     font-weight: 900;
@@ -76,14 +75,13 @@
 }
 
 .cart-item-price {
-    color: #ff0000;
+    color: var(--primary-red);
     font-weight: bold;
     font-size: 1.2rem;
     margin-top: 8px;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
 }
 
-/* --- KONTROL JUMLAH & TOMBOL HAPUS --- */
 .cart-item-actions {
     display: flex;
     align-items: center;
@@ -102,7 +100,7 @@
 
 .quantity-btn {
     background: #222;
-    color: #ff0000;
+    color: var(--primary-red);
     border: 1px solid #444;
     width: 35px;
     height: 35px;
@@ -117,9 +115,9 @@
 }
 
 .quantity-btn:hover {
-    background: #ff0000;
+    background: var(--primary-red);
     color: white;
-    border-color: #ff0000;
+    border-color: var(--primary-red);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
@@ -133,8 +131,8 @@
 
 .remove-item {
     background: transparent;
-    border: 2px solid #ff0000;
-    color: #ff0000;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
     padding: 8px 15px;
     border-radius: 6px;
     font-weight: bold;
@@ -144,16 +142,15 @@
 }
 
 .remove-item:hover {
-    background: #ff0000;
+    background: var(--primary-red);
     color: white;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
     transform: scale(1.05);
 }
 
-/* --- KOTAK TOTAL & CHECKOUT --- */
 .empty-cart {
     text-align: center;
-    color: #777;
+    color: var(--text-gray);
     font-size: 1.5rem;
     padding: 60px 20px;
     font-style: italic;
@@ -164,7 +161,7 @@
 .cart-summary {
     background: linear-gradient(145deg, #1a1a1a, #111);
     border: 1px solid #333;
-    border-top: 4px solid #ff0000;
+    border-top: 4px solid var(--primary-red);
     padding: 30px;
     border-radius: 12px;
     margin-top: 40px;
@@ -181,11 +178,12 @@
 }
 
 #totalPrice {
-    color: #ff0000;
+    color: var(--primary-red);
     text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
 }
 
 .btn-checkout {
+    font-family: var(--font-headings);
     width: 100%;
     padding: 18px;
     background: linear-gradient(90deg, #ff0000, #aa0000);
@@ -208,68 +206,174 @@
 }
 
 @media (max-width: 600px) {
-    .cart-item { flex-direction: column; align-items: center; text-align: center; padding: 25px 15px; }
-    .cart-item-img { margin-right: 0; margin-bottom: 20px; width: 100%; height: 180px; }
-    .cart-item-actions { margin-top: 20px; width: 100%; flex-direction: column; gap: 15px; }
-    .remove-item { width: 100%; }
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px 15px;
+    }
+    .cart-item-img {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        height: 180px;
+    }
+    .cart-item-actions {
+        margin-top: 20px;
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .remove-item {
+        width: 100%;
+    }
 }
 
+/* --- PAYMENT MODAL --- */
 .payment-overlay {
     display: none; 
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(0, 0, 0, 0.85); 
-    backdrop-filter: blur(8px); 
-    z-index: 999999; 
-    justify-content: center; align-items: center;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999; 
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-overlay[style*="display: flex"] {
+    display: flex !important;
 }
 
 .payment-container {
-    background: #111; 
-    border: 2px solid #ff0000; 
+    background: #111;
+    border: 2px solid var(--primary-red);
     border-radius: 12px;
-    width: 90%; max-width: 500px; 
-    padding: 35px 25px; position: relative;
-    box-shadow: 0 15px 50px rgba(255, 0, 0, 0.4); 
+    width: 90%;
+    max-width: 500px;
+    padding: 35px 25px;
+    position: relative;
+    box-shadow: 0 15px 50px rgba(255, 0, 0, 0.4);
     animation: fadeInUp 0.4s ease-out;
 }
 
 .payment-container h2 {
-    color: #fff; font-style: italic; text-align: center; margin-bottom: 25px;
-    text-transform: uppercase; border-bottom: 2px solid #333; padding-bottom: 15px;
+    font-family: var(--font-headings);
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
     font-size: 1.8rem;
 }
 
 .close-payment {
-    position: absolute; top: 15px; right: 25px; color: #888; 
-    font-size: 35px; cursor: pointer; transition: 0.3s; font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #888;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
 }
-.close-payment:hover { color: #ff0000; transform: scale(1.1); }
 
-.payment-options { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+.close-payment:hover {
+    color: var(--primary-red);
+    transform: scale(1.1);
+}
+
+.address-section {
+    margin-bottom: 25px;
+}
+
+.address-section textarea {
+    width: 100%;
+    background: #1a1a1a;
+    border: 2px solid #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    resize: none;
+    transition: 0.3s;
+}
+
+.address-section textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column; 
+    gap: 12px;
+    margin: 15px 0 25px 0;
+}
 
 .payment-method {
-    display: flex; align-items: center; background: #1a1a1a; padding: 15px;
-    border: 2px solid #333; border-radius: 8px; cursor: pointer; transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #1a1a1a;
+    border: 2px solid #333;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
 }
-.payment-method:hover { border-color: #ff0000; background: #222; }
 
+.payment-method:hover {
+    border-color: var(--primary-red);
+    background-color: #222;
+}
 
-.payment-method input[type="radio"] { margin-right: 15px; accent-color: #ff0000; transform: scale(1.5); }
+.payment-method input[type="radio"] {
+    transform: scale(1.4); 
+    accent-color: var(--primary-red); 
+    cursor: pointer;
+    margin: 0;
+}
 
-.method-content { display: flex; flex-direction: column; }
-.bank-name { color: #fff; font-weight: bold; font-size: 1.1rem; }
-.bank-desc { color: #aaa; font-size: 0.9rem; margin-top: 5px; font-style: italic; }
+.method-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.bank-name {
+    font-family: var(--font-body);
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
 
 .btn-confirm-pay {
-    width: 100%; padding: 18px; 
-    background: linear-gradient(90deg, #ff0000, #aa0000); 
-    color: #fff; border: none; border-radius: 8px;
-    font-size: 1.3rem; font-weight: 900; cursor: pointer; 
-    text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+    font-family: var(--font-headings);
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(90deg, #ff0000, #aa0000);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
 }
-.btn-confirm-pay:hover { background: #cc0000; box-shadow: 0 0 25px rgba(255, 0, 0, 0.6); }
 
-/* --- STYLE STEP 2 (VA & QRIS) --- */
+.btn-confirm-pay:hover {
+    background: #cc0000;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
 .payment-details-box {
     text-align: center;
     margin-bottom: 25px;
@@ -280,7 +384,7 @@
 }
 
 #selectedMethodName {
-    color: #ff0000;
+    color: var(--primary-red);
     font-size: 1.5rem;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -292,10 +396,9 @@
     margin-bottom: 15px;
 }
 
-/* Kotak Nomor VA */
 .va-box {
     background: #000;
-    border: 2px dashed #ff0000;
+    border: 2px dashed var(--primary-red);
     padding: 15px;
     font-size: 2rem;
     font-weight: 900;
@@ -314,7 +417,14 @@
     padding: 10px;
     display: inline-block;
     border-radius: 8px;
-    border: 4px solid #ff0000;
+    border: 4px solid var(--primary-red);
+    text-align: center;
+}
+
+.qris-box img {
+    max-width: 250px;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .timer-text {
@@ -324,11 +434,70 @@
     margin-top: 15px;
 }
 
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 9999999;
+    flex-direction: column;
+    align-items: center;
+    
+    /* INI OBATNYA BIAR KAGA KEPOTONG: */
+    justify-content: flex-start; /* Mulai dari atas, bukan dipaksa ke tengah */
+    overflow-y: auto; /* Nyalain fitur scroll */
+    padding: 50px 20px; /* Kasih napas atas bawah biar kaga mentok ujung layar */
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 8px solid #222;
+    border-top: 8px solid var(--primary-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+}
+
+.loading-text {
+    font-family: var(--font-headings);
+    color: var(--primary-red);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: 4px;
+    font-size: 26px;
+    animation: blink 0.8s infinite alternate;
+    text-transform: uppercase;
+}
+
 .success-icon {
     font-size: 80px;
     margin-bottom: 20px;
     animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    filter: drop-shadow(0 0 25px rgba(0, 255, 0, 0.6)); 
+    filter: drop-shadow(0 0 25px rgba(0, 255, 0, 0.6));
+}
+
+.loading-text.success-mode {
+    color: #00ff00;
+    animation: none;
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+    transform: scale(1.1);
+    transition: 0.4s;
+    text-align: center;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+    0% { opacity: 1; text-shadow: 0 0 20px rgba(255,0,0,0.9); }
+    100% { opacity: 0.2; text-shadow: none; }
 }
 
 @keyframes popIn {
@@ -337,92 +506,58 @@
     100% { transform: scale(1); opacity: 1; }
 }
 
+/* --- MODE MESIN PRINT (HANYA AKTIF SAAT MAU NYETAK) --- */
+@media print {
+    body * {
+        visibility: hidden; /* Sembunyiin semua web lu */
+    }
+    
+    #loadingOverlay, #loadingOverlay * {
+        visibility: visible; /* Cuma munculin layar sukses transaksi */
+    }
+    
+    #loadingOverlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: transparent !important;
+        color: #000 !important;
+        padding: 0 !important;
+        display: block !important; /* Paksa jadi block biar kaga kacau marginnya di kertas */
+    }
 
-.loading-text.success-mode {
-    color: #00ff00; 
-    animation: none; 
-    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
-    transform: scale(1.1);
-    transition: 0.4s;
-}
-
-.address-section {
-    margin-bottom: 25px;
-}
-
-.address-section textarea {
-    width: 100%;
-    background: #1a1a1a;
-    border: 2px solid #333;
-    color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-    resize: none; 
-    transition: 0.3s;
-}
-
-.address-section textarea:focus {
-    outline: none;
-    border-color: #ff0000;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-}
-
-.address-section textarea::placeholder {
-    color: #666;
-    font-style: italic;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000000;
-    padding: 20px 50px;
-    border-bottom: 3px solid #d32f2f; 
-    width: 100%;
-    margin: 0;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.logo span {
-    color: #d32f2f; 
-}
-
-.menu li .kembali{
-    color: black; 
-    border: 2px solid #ee0707;
-    padding: 8px 15px;
-    border-radius: 6px;
-    background: #ee0707;
-}
-
-.menu li a {
-    color: #888888; 
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: color 0.3s;
-}
-
-
-.menu li a:hover {
-    color: white;
-}
-
-
-.menu li a.aktif {
-    color: #ee0707; 
-}
-
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    #invoiceArea {
+        box-shadow: none !important; /* Kertas kaga butuh bayangan */
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important; /* Paksa penuhin ukuran kertas A4 */
+    }
+    
+    /* INI OBATNYA BIAR TABEL KAGA KEPOTONG DI KERTAS */
+    #invoiceArea div[style*="overflow-x: auto"] {
+        overflow: visible !important; /* Matiin scrollbar bodoh pas nyetak */
+    }
+    
+    #invoiceArea table {
+        width: 100% !important;
+        table-layout: auto !important;
+    }
+    
+    /* Pas di print, teks boleh turun baris dan font dikecilin dikit biar 5 kolom muat! */
+    #invoiceArea th, #invoiceArea td {
+        white-space: normal !important; 
+        font-size: 12px !important; 
+        padding: 8px !important;
+    }
+    
+    .loading-text.success-mode {
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+    
+    .btn-print {
+        display: none !important; /* Tombol cetak ilang pas di kertas */
+    }
 }
