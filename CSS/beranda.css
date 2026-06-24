@@ -94,3 +94,10 @@
     color: #fff;
     padding: 0 20px;
 }
+
+.img-kotak{
+    width: 1300px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}

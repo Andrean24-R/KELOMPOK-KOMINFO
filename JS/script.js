@@ -41,31 +41,24 @@ if (menuOverlay) {
     });
 }
 
-// --- MESIN TEMA GELAP TERANG ---
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    
-    // Cek memori, kemaren user milih tema apa?
-    if (localStorage.getItem('theme') === 'light') {
-        body.classList.add('light-mode');
-        if(themeToggle) themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    }
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            body.classList.toggle('light-mode');
+document.getElementById('liveSearch').addEventListener('input', function() {
+            // Ambil apa yang diketik user, paksa jadi huruf kecil semua biar ga sensitif
+            const keyword = this.value.toLowerCase().trim();
             
-            // Simpan pilihan ke otak browser
-            if (body.classList.contains('light-mode')) {
-                localStorage.setItem('theme', 'light');
-                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-            } else {
-                localStorage.setItem('theme', 'dark');
-                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-            }
-        });
-    }
-});
+            // Targetin class product-card yang ada di halaman ini
+            const products = document.querySelectorAll('.product-card');
 
+            products.forEach(product => {
+                // Ambil data nama dari atribut, ama teks deskripsi di dalamnya
+                const name = product.getAttribute('data-name').toLowerCase();
+                const desc = product.querySelector('.desc').textContent.toLowerCase();
+
+                // Logika: Cocok gak kata kunci ama nama atau deskripsi barang?
+                if (name.includes(keyword) || desc.includes(keyword)) {
+                    product.style.display = ""; // Munculin kalau cocok
+                } else {
+                    product.style.setProperty('display', 'none', 'important'); // Tendang kalau kagak cocok
+                }
+            });
+        });
