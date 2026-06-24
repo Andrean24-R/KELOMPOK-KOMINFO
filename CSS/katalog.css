@@ -103,7 +103,7 @@
     font-family: var(--font-body);
     background: #111;
     color: #fff;
-    border: 2px solid #333;
+    border: 2px solid #787878;
     border-radius: 8px;
     transition: 0.3s;
 }
