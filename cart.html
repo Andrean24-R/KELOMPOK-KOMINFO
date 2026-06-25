@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keranjang Belanja - Mikroskil Autospeed</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/cart.css">
 </head>
+
 <body>
     <div class="menu-overlay" id="menuOverlay"></div>
-    
+
     <header>
         <nav class="navbar">
             <a href="beranda.html" class="logo">MIKROSKIL <span>AUTOSPEED</span></a>
@@ -22,8 +26,12 @@
                 <li><a href="aksesoris_body.html">Aksesoris</a></li>
                 <li><a href="galeri.html">Galeri</a></li>
                 <li><a href="layanan.html">Layanan</a></li>
-                <li><a href="cart.html" class="active cart-link">🛒 Keranjang <span id="cartCount" class="cart-badge">0</span></a></li>
-                <li><a href="login.html"><div class="btn-login">Keluar</a></div></li>
+                <li><a href="cart.html" class="active cart-link">🛒 Keranjang <span id="cartCount"
+                            class="cart-badge">0</span></a></li>
+                <li><a href="login.html">
+                        <div class="btn-login">Keluar
+                    </a></div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -32,13 +40,14 @@
         <div id="paymentModal" class="payment-overlay">
             <div class="payment-container">
                 <span class="close-payment" id="closePayment">&times;</span>
-                
+
                 <div id="step1">
                     <h2>INFO PENGIRIMAN</h2>
                     <div class="address-section">
-                        <textarea id="shippingAddress" rows="3" placeholder="Ketik alamat lengkap lu di sini!"></textarea>
+                        <textarea id="shippingAddress" rows="3"
+                            placeholder="Ketik alamat lengkap lu di sini!"></textarea>
                     </div>
-                    
+
                     <h2>PILIH JALUR PEMBAYARAN</h2>
                     <div class="payment-options">
                         <label class="payment-method">
@@ -66,14 +75,15 @@
                     <div class="payment-details-box">
                         <h3 id="selectedMethodName">Metode Pembayaran</h3>
                         <p id="paymentInstruction" class="instruction-text">Silakan transfer / scan kode berikut:</p>
-                        
+
                         <div class="va-box" id="vaCodeContainer"><span id="vaNumber">0</span></div>
-                        
+
                         <div class="qris-box" id="qrisContainer" style="display: none;">
                             <img src="qris-dummy.png" alt="Scan QRIS">
                         </div>
-                        
-                        <p class="timer-text">Batas waktu: <span id="paymentTimer" style="color: #ff0000; font-weight: bold">15:00</span> menit</p>
+
+                        <p class="timer-text">Batas waktu: <span id="paymentTimer"
+                                style="color: #ff0000; font-weight: bold">15:00</span> menit</p>
                     </div>
                     <button id="btnVerifikasi" class="btn-confirm-pay">SAYA SUDAH BAYAR</button>
                 </div>
@@ -105,4 +115,5 @@
     <script src="JS/cart.js"></script>
     <script src="JS/script.js"></script>
 </body>
+
 </html>

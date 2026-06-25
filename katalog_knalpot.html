@@ -1,268 +1,194 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Knalpot - Mikroskil Autospeed</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/global.css">
-    <link rel="stylesheet" href="CSS/katalog.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <header>
-        <nav class="navbar">
-            <a href="beranda.html" class="logo">MIKROSKIL <span>AUTOSPEED</span></a>
-            <button class="hamburger" id="hamburgerMenu"><span></span><span></span><span></span></button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="beranda.html">Beranda</a></li>
-                <li><a href="katalog_knalpot.html" class="active">Katalog Knalpot</a></li>
-                <li><a href="aksesoris_body.html">Aksesoris</a></li>
-                <li><a href="galeri.html">Galeri</a></li>
-                <li><a href="layanan.html">Layanan</a></li>
-                <li><a href="cart.html" class="cart-link">🛒 Keranjang <span id="cartCount" class="cart-badge">0</span></a></li>
-                <li><a href="login.html"><div class="btn-login">Keluar</a></div></li>
-            </ul>
-        </nav>
-    </header>
 
-<!-- KOTAK LIVE SEARCH -->
-    <div class="search-container">
-        <input type="text" id="liveSearch" placeholder="🔍 Cari nama knalpot atau part di sini..." class="search-box">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Knalpot - Mikroskil Autospeed</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="CSS/global.css">
+  <link rel="stylesheet" href="CSS/katalog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <header>
+    <nav class="navbar">
+      <a href="beranda.html" class="logo">MIKROSKIL <span>AUTOSPEED</span></a>
+      <button class="hamburger" id="hamburgerMenu"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="beranda.html">Beranda</a></li>
+        <li><a href="katalog_knalpot.html" class="active">Katalog Knalpot</a></li>
+        <li><a href="aksesoris_body.html">Aksesoris</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="cart.html" class="cart-link">🛒 Keranjang <span id="cartCount" class="cart-badge">0</span></a></li>
+        <li><a href="login.html">
+            <div class="btn-login">Keluar
+          </a></div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <div class="search-container">
+    <input type="text" id="liveSearch" placeholder="🔍 Cari nama knalpot atau part di sini..." class="search-box">
+  </div>
+
+  <section class="katalog-container">
+    <div class="katalog-header">
+      <h1>Koleksi Knalpot Racing</h1>
+      <p>Pilih suara dan performa yang cocok buat mesin JDM lu!</p>
     </div>
 
-    <section class="katalog-container">
-      <div class="katalog-header">
-        <h1>Koleksi Knalpot Racing</h1>
-        <p>Pilih suara dan performa yang cocok buat mesin JDM lu!</p>
-      </div>
-
-      <div class="product-grid">
-        <div
-          class="product-card"
-          data-id="akrapovic-fs"
-          data-name="Akrapovic Full System"
-          data-price="12500000"
-          data-image="https://dynobike.com.au/wp-content/uploads/2021/02/Aprilia-RSV4-Akrapovic-full-system.png"
-        >
-          <div class="product-img">
-            <img
-              src="https://dynobike.com.au/wp-content/uploads/2021/02/Aprilia-RSV4-Akrapovic-full-system.png"
-              alt="Akrapovic Evolution"
-            />
-          </div>
-          <div class="product-info">
-            <h3>Akrapovic Full System</h3>
-            <p class="desc">Bahan Titanium, ringan, suara ngebass gahar.</p>
-            <p class="price">Rp 12.500.000</p>
-            <button
-              class="btn-buy"
-              data-name="Akrapovic Full System"
-              data-price="12500000"
-            >
-              SIKAT!
-            </button>
-          </div>
+    <div class="product-grid">
+      <div class="product-card" data-id="akrapovic-fs" data-name="Akrapovic Full System" data-price="12500000"
+        data-image="https://dynobike.com.au/wp-content/uploads/2021/02/Aprilia-RSV4-Akrapovic-full-system.png">
+        <div class="product-img">
+          <img src="https://dynobike.com.au/wp-content/uploads/2021/02/Aprilia-RSV4-Akrapovic-full-system.png"
+            alt="Akrapovic Evolution" />
         </div>
-
-        <div
-          class="product-card"
-          data-id="hks-hipower"
-          data-name="HKS Hi-Power JDM"
-          data-price="80999999"
-          data-image="https://cdn11.bigcommerce.com/s-79xyvl/products/19086/images/31575/HKS_R35_SpecR__98017.1722351293.500.659.jpg?c=2"
-        >
-          <div class="product-img">
-            <img
-              src="https://cdn11.bigcommerce.com/s-79xyvl/products/19086/images/31575/HKS_R35_SpecR__98017.1722351293.500.659.jpg?c=2"
-              alt="HKS Hi-Power"
-            />
-          </div>
-          <div class="product-info">
-            <h3>HKS Hi-Power JDM</h3>
-            <p class="desc">Khas mobil Jepang, performa naik drastis.</p>
-            <p class="price">Rp 80.999.999</p>
-            <button
-              class="btn-buy"
-              data-name="HKS Hi-Power JDM"
-              data-price="80999999"
-            >
-              SIKAT!
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="product-card"
-          data-id="leovince-gp"
-          data-name="LEOVINCE GP CORSA EVO"
-          data-price="10200000"
-          data-image="https://www.omniaracing.net/rep/images/Leovince_GP_CORSA_EVO_gif.gif"
-        >
-          <div class="product-img">
-            <img
-              src="https://www.omniaracing.net/rep/images/Leovince_GP_CORSA_EVO_gif.gif"
-              alt="LeoVince GP Corsa Evo"
-            />
-          </div>
-          <div class="product-info">
-            <h3>LEOVINCE GP CORSA EVO</h3>
-            <p class="desc">Finishing carbon, tahan panas, look sporty.</p>
-            <p class="price">Rp 10.200.000</p>
-            <button
-              class="btn-buy"
-              data-name="LEOVINCE GP CORSA EVO"
-              data-price="10200000"
-            >
-              SIKAT!
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="product-card"
-          data-id="LEOVINCE-GrandTurismo"
-          data-name="LEOVINCE-GrandTurismo"
-          data-price="11000000"
-          data-image="https://www.omniaracing.net/rep/images/Leovince_GRANTURISMO_gif.gif"
-        >
-          <div class="product-img">
-            <img
-              src="https://www.omniaracing.net/rep/images/Leovince_GRANTURISMO_gif.gif"
-              alt="LeoVince GrandTurismo"
-            />
-          </div>
-          <div class="product-info">
-            <h3>LEOVINCE-GrandTurismo</h3>
-            <p class="desc">Berbahan Titanium, tahan panas, look sporty.</p>
-            <p class="price">Rp 11.000.000</p>
-            <button
-              class="btn-buy"
-              data-name="LEOVINCE-GrandTurismo"
-              data-price="11000000"
-            >
-              SIKAT!
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="product-card"
-          data-id="LEOVINCE-LV PRO"
-          data-name="LEOVINCE-LV PRO"
-          data-price="11000000"
-          data-image="https://www.omniaracing.net/rep/images/Leovince_LV_PRO_CARBON_FIBER_gif.gif"
-        >
-          <div class="product-img">
-            <img
-              src="https://www.omniaracing.net/rep/images/Leovince_LV_PRO_CARBON_FIBER_gif.gif"
-              alt="LeoVince LV PRO"
-            />
-          </div>
-          <div class="product-info">
-            <h3>LEOVINCE-LV PRO</h3>
-            <p class="desc">Finishing carbon, tahan panas, look sporty.</p>
-            <p class="price">Rp 11.000.000</p>
-            <button
-              class="btn-buy"
-              data-name="LEOVINCE-LV PRO"
-              data-price="11000000"
-            >
-              SIKAT!
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="product-card"
-          data-id="SSM"
-          data-name="SSM"
-          data-price="80000000"
-          data-image="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_ssm.jpg"
-        >
-          <div class="product-img">
-            <img
-              src="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_ssm.jpg"
-              alt="SSM Exhaust"
-            />
-          </div>
-          <div class="product-info">
-            <h3>SSM</h3>
-            <p class="desc">Terbuat dari titanium yang sangat kuat.</p>
-            <p class="price">Rp 80.000.000</p>
-            <button class="btn-buy" data-name="SSM" data-price="80000000">
-              SIKAT!
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="product-card"
-          data-id="SSM"
-          data-name="SSM"
-          data-price="80000000"
-          data-image="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_ssm.jpg"
-        >
-          <div class="product-img">
-            <img
-              src="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_ssm.jpg"
-              alt="SSM Exhaust"
-            />
-          </div>
-          <div class="product-info">
-            <h3>SSM</h3>
-            <p class="desc">Terbuat dari titanium yang sangat kuat.</p>
-            <p class="price">Rp 80.000.000</p>
-            <button class="btn-buy" data-name="SSM" data-price="80000000">
-              SIKAT!
-            </button>
-          </div>
-        </div>
-
-        <div
-          class="product-card"
-          data-id="Super Turbo Muffler URBAN MATTE EDITION"
-          data-name="Super Turbo Muffler URBAN MATTE EDITION"
-          data-price="50000000"
-          data-image="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_stm_mat.jpg"
-        >
-          <div class="product-img">
-            <img
-              src="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_stm_mat.jpg"
-              alt="Super Turbo Muffler"
-            />
-          </div>
-          <div class="product-info">
-            <h3>Super Turbo Muffler URBAN MATTE EDITION</h3>
-            <p class="desc">
-              Berbahan Titanium yang sangat kuat dan tahan panas.
-            </p>
-            <p class="price">Rp 50.000.000</p>
-            <button
-              class="btn-buy"
-              data-name="Super Turbo Muffler URBAN MATTE EDITION"
-              data-price="50000000"
-            >
-              SIKAT!
-            </button>
-          </div>
+        <div class="product-info">
+          <h3>Akrapovic Full System</h3>
+          <p class="desc">Bahan Titanium, ringan, suara ngebass gahar.</p>
+          <p class="price">Rp 12.500.000</p>
+          <button class="btn-buy" data-name="Akrapovic Full System" data-price="12500000">
+            SIKAT!
+          </button>
         </div>
       </div>
-    </section>
 
-    <a href="https://wa.me/6281373284741" target="_blank" class="floating-wa">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+      <div class="product-card" data-id="hks-hipower" data-name="HKS Hi-Power JDM" data-price="80999999"
+        data-image="https://cdn11.bigcommerce.com/s-79xyvl/products/19086/images/31575/HKS_R35_SpecR__98017.1722351293.500.659.jpg?c=2">
+        <div class="product-img">
+          <img
+            src="https://cdn11.bigcommerce.com/s-79xyvl/products/19086/images/31575/HKS_R35_SpecR__98017.1722351293.500.659.jpg?c=2"
+            alt="HKS Hi-Power" />
+        </div>
+        <div class="product-info">
+          <h3>HKS Hi-Power JDM</h3>
+          <p class="desc">Khas mobil Jepang, performa naik drastis.</p>
+          <p class="price">Rp 80.999.999</p>
+          <button class="btn-buy" data-name="HKS Hi-Power JDM" data-price="80999999">
+            SIKAT!
+          </button>
+        </div>
+      </div>
 
-    <footer>
-      <p>
-        &copy; 2026 MIKROSKIL AUTOSPEED Garage. Gaspol terus jangan kasih
-        kendor.
-      </p>
-    </footer>
+      <div class="product-card" data-id="leovince-gp" data-name="LEOVINCE GP CORSA EVO" data-price="10200000"
+        data-image="https://www.omniaracing.net/rep/images/Leovince_GP_CORSA_EVO_gif.gif">
+        <div class="product-img">
+          <img src="https://www.omniaracing.net/rep/images/Leovince_GP_CORSA_EVO_gif.gif" alt="LeoVince GP Corsa Evo" />
+        </div>
+        <div class="product-info">
+          <h3>LEOVINCE GP CORSA EVO</h3>
+          <p class="desc">Finishing carbon, tahan panas, look sporty.</p>
+          <p class="price">Rp 10.200.000</p>
+          <button class="btn-buy" data-name="LEOVINCE GP CORSA EVO" data-price="10200000">
+            SIKAT!
+          </button>
+        </div>
+      </div>
 
-    <script src="JS/cart.js"></script>
-    <script src="JS/script.js"></script>
-  </body>
+      <div class="product-card" data-id="LEOVINCE-GrandTurismo" data-name="LEOVINCE-GrandTurismo" data-price="11000000"
+        data-image="https://www.omniaracing.net/rep/images/Leovince_GRANTURISMO_gif.gif">
+        <div class="product-img">
+          <img src="https://www.omniaracing.net/rep/images/Leovince_GRANTURISMO_gif.gif" alt="LeoVince GrandTurismo" />
+        </div>
+        <div class="product-info">
+          <h3>LEOVINCE-GrandTurismo</h3>
+          <p class="desc">Berbahan Titanium, tahan panas, look sporty.</p>
+          <p class="price">Rp 11.000.000</p>
+          <button class="btn-buy" data-name="LEOVINCE-GrandTurismo" data-price="11000000">
+            SIKAT!
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="LEOVINCE-LV PRO" data-name="LEOVINCE-LV PRO" data-price="11000000"
+        data-image="https://www.omniaracing.net/rep/images/Leovince_LV_PRO_CARBON_FIBER_gif.gif">
+        <div class="product-img">
+          <img src="https://www.omniaracing.net/rep/images/Leovince_LV_PRO_CARBON_FIBER_gif.gif"
+            alt="LeoVince LV PRO" />
+        </div>
+        <div class="product-info">
+          <h3>LEOVINCE-LV PRO</h3>
+          <p class="desc">Finishing carbon, tahan panas, look sporty.</p>
+          <p class="price">Rp 11.000.000</p>
+          <button class="btn-buy" data-name="LEOVINCE-LV PRO" data-price="11000000">
+            SIKAT!
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="SSM" data-name="SSM" data-price="80000000"
+        data-image="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_ssm.jpg">
+        <div class="product-img">
+          <img src="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_ssm.jpg" alt="SSM Exhaust" />
+        </div>
+        <div class="product-info">
+          <h3>SSM</h3>
+          <p class="desc">Terbuat dari titanium yang sangat kuat.</p>
+          <p class="price">Rp 80.000.000</p>
+          <button class="btn-buy" data-name="SSM" data-price="80000000">
+            SIKAT!
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="SSM" data-name="SSM" data-price="80000000"
+        data-image="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_ssm.jpg">
+        <div class="product-img">
+          <img src="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_ssm.jpg" alt="SSM Exhaust" />
+        </div>
+        <div class="product-info">
+          <h3>SSM</h3>
+          <p class="desc">Terbuat dari titanium yang sangat kuat.</p>
+          <p class="price">Rp 80.000.000</p>
+          <button class="btn-buy" data-name="SSM" data-price="80000000">
+            SIKAT!
+          </button>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="Super Turbo Muffler URBAN MATTE EDITION"
+        data-name="Super Turbo Muffler URBAN MATTE EDITION" data-price="50000000"
+        data-image="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_stm_mat.jpg">
+        <div class="product-img">
+          <img src="https://www.hks-power.co.jp/en/product/exhaust/images/img_m_stm_mat.jpg"
+            alt="Super Turbo Muffler" />
+        </div>
+        <div class="product-info">
+          <h3>Super Turbo Muffler URBAN MATTE EDITION</h3>
+          <p class="desc">
+            Berbahan Titanium yang sangat kuat dan tahan panas.
+          </p>
+          <p class="price">Rp 50.000.000</p>
+          <button class="btn-buy" data-name="Super Turbo Muffler URBAN MATTE EDITION" data-price="50000000">
+            SIKAT!
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/6281373284741" target="_blank" class="floating-wa">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    <p>
+      &copy; 2026 MIKROSKIL AUTOSPEED Garage. Gaspol terus jangan kasih
+      kendor.
+    </p>
+  </footer>
+
+  <script src="JS/cart.js"></script>
+  <script src="JS/script.js"></script>
+</body>
+
 </html>

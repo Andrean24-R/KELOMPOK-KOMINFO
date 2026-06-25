@@ -1,17 +1,16 @@
-// --- 1. LOGIKA LOGIN ---
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
-    loginForm.addEventListener('submit', function(event) {
-        event.preventDefault(); 
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault();
         let usnInput = document.getElementById('username').value;
         let pwInput = document.getElementById('password').value;
 
         if (usnInput === "kominfo" && pwInput === "admin123@") {
             const loadingOverlay = document.getElementById('loadingOverlay');
             if (loadingOverlay) loadingOverlay.style.display = 'flex';
-            
+
             setTimeout(() => {
-                window.location.href = "beranda.html"; 
+                window.location.href = "beranda.html";
             }, 2500);
         } else {
             alert("Username atau Password salah! Coba lagi");
@@ -20,7 +19,7 @@ if (loginForm) {
 }
 
 
-// --- KODE BARU: LOGIKA HAMBURGER MENU RESPONSIVITAS MOBILE ---
+
 const hamburger = document.getElementById('hamburgerMenu');
 const navLinks = document.getElementById('navLinks');
 const menuOverlay = document.getElementById('menuOverlay');
@@ -42,23 +41,23 @@ if (menuOverlay) {
 }
 
 
-document.getElementById('liveSearch').addEventListener('input', function() {
-            // Ambil apa yang diketik user, paksa jadi huruf kecil semua biar ga sensitif
-            const keyword = this.value.toLowerCase().trim();
-            
-            // Targetin class product-card yang ada di halaman ini
-            const products = document.querySelectorAll('.product-card');
+document.getElementById('liveSearch').addEventListener('input', function () {
 
-            products.forEach(product => {
-                // Ambil data nama dari atribut, ama teks deskripsi di dalamnya
-                const name = product.getAttribute('data-name').toLowerCase();
-                const desc = product.querySelector('.desc').textContent.toLowerCase();
+    const keyword = this.value.toLowerCase().trim();
 
-                // Logika: Cocok gak kata kunci ama nama atau deskripsi barang?
-                if (name.includes(keyword) || desc.includes(keyword)) {
-                    product.style.display = ""; // Munculin kalau cocok
-                } else {
-                    product.style.setProperty('display', 'none', 'important'); // Tendang kalau kagak cocok
-                }
-            });
-        });
+
+    const products = document.querySelectorAll('.product-card');
+
+    products.forEach(product => {
+
+        const name = product.getAttribute('data-name').toLowerCase();
+        const desc = product.querySelector('.desc').textContent.toLowerCase();
+
+
+        if (name.includes(keyword) || desc.includes(keyword)) {
+            product.style.display = "";
+        } else {
+            product.style.setProperty('display', 'none', 'important');
+        }
+    });
+});
