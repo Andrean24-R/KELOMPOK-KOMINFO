@@ -26,6 +26,29 @@ body {
     line-height: 1.6;
 }
 
+.btn-login {
+    font-family: var(--font-headings);
+    display: inline-block;
+    padding: 5px;
+    background-color: var(--primary-red);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 3px solid var(--primary-red);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    transition: var(--transition);
+    justify-content: center;
+}
+
+.btn-login:hover {
+    background-color: transparent;
+    color: var(--primary-red);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    transform: scale(1.05);
+}
+
 
 body.no-scroll {
     overflow: hidden;
@@ -56,7 +79,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 8px 5%;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -99,7 +122,7 @@ header {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-links a {
@@ -107,14 +130,14 @@ header {
     font-weight: 500;
     text-transform: uppercase;
     font-size: 15px;
-    color: #bbbbbb;
+    color: white;
     letter-spacing: 1px;
     padding: 5px 0;
     position: relative;
 }
 
 .nav-links a:hover, .nav-links a.active { 
-    color: var(--text-white); 
+    color: #bbbbbb;
 }
 
 .nav-links a::after {
@@ -157,13 +180,12 @@ header {
     padding: 8px 20px;
     border-radius: 4px;
     font-weight: 700;
-    border: 2px solid transparent;
 }
 
 .btn-login-nav:hover {
     background-color: transparent;
     border-color: var(--primary-red);
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    color:red;
 }
 
 /* MOBILE OVERLAY SHADE */
@@ -197,6 +219,7 @@ footer {
     padding: 25px 0;
     border-top: 1px solid #222222;
     font-size: 14px;
+    margin-top: 50px;
 }
 
 /* --- MOBILE RESPONSIVE ENGINE (BREAKPOINT 992PX) --- */
@@ -379,3 +402,6 @@ body.light-mode .gallery-item .desc {
     color: #fff;
 }
 
+.navbar ul li a{
+    padding: 10px;
+}
